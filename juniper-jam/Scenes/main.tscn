@@ -1,45 +1,24 @@
 [gd_scene format=3 uid="uid://nno4p6w8325r"]
 
-[ext_resource type="Texture2D" uid="uid://va5f472ix74c" path="res://Sprites/InnerCircle.png" id="1_8gbba"]
-[ext_resource type="Shader" uid="uid://sdisuq6auklm" path="res://Scenes/HighlightOutline.gdshader" id="1_21xkr"]
-[ext_resource type="Texture2D" uid="uid://d1jq8npfe1j8j" path="res://Sprites/OuterCircle.png" id="1_kry3j"]
-[ext_resource type="Texture2D" uid="uid://c7ykpiga1cwnd" path="res://Sprites/MiddleCircle.png" id="2_21xkr"]
+[ext_resource type="Script" uid="uid://48tno0u5v488" path="res://Scipts/player_controls.gd" id="1_6bp64"]
 [ext_resource type="Texture2D" uid="uid://lvn7k773basn" path="res://Sprites/Center.png" id="2_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://780r3dkf80uw" path="res://Sprites/DeadCenter.png" id="3_kry3j"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqyvl"]
-shader = ExtResource("1_21xkr")
-shader_parameter/clr = Color(1, 1, 1, 1)
-shader_parameter/type = 2
-shader_parameter/thickness = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_otv2m"]
-shader = ExtResource("1_21xkr")
-shader_parameter/clr = Color(1, 1, 1, 1)
-shader_parameter/type = 2
-shader_parameter/thickness = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bp64"]
-shader = ExtResource("1_21xkr")
-shader_parameter/clr = Color(1, 1, 1, 1)
-shader_parameter/type = 2
-shader_parameter/thickness = 0.0
+[ext_resource type="PackedScene" uid="uid://c8m2oi8tou6t5" path="res://Scenes/outer_ring.tscn" id="4_kry3j"]
+[ext_resource type="PackedScene" uid="uid://ds5yfyb8j7k16" path="res://Scenes/middle_ring.tscn" id="5_21xkr"]
+[ext_resource type="PackedScene" uid="uid://bvw53c30gmm22" path="res://Scenes/inner_ring.tscn" id="6_21xkr"]
 
 [node name="Main" type="Node2D" unique_id=1269433863]
 
+[node name="PlayerControls" type="Node2D" parent="." unique_id=746756295]
+script = ExtResource("1_6bp64")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1664031138]
 
-[node name="OuterCircle" type="Sprite2D" parent="." unique_id=60124527]
-material = SubResource("ShaderMaterial_hqyvl")
-texture = ExtResource("1_kry3j")
+[node name="OuterRing" parent="." unique_id=360862532 instance=ExtResource("4_kry3j")]
 
-[node name="MiddleCircle" type="Sprite2D" parent="." unique_id=1524096880]
-material = SubResource("ShaderMaterial_otv2m")
-texture = ExtResource("2_21xkr")
+[node name="MiddleRing" parent="." unique_id=901090933 instance=ExtResource("5_21xkr")]
 
-[node name="InnerCircle" type="Sprite2D" parent="." unique_id=730017732]
-material = SubResource("ShaderMaterial_6bp64")
-texture = ExtResource("1_8gbba")
+[node name="InnerRing" parent="." unique_id=76950587 instance=ExtResource("6_21xkr")]
 
 [node name="Center" type="Sprite2D" parent="." unique_id=873971095]
 texture = ExtResource("2_jjvhh")

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bvw53c30gmm22"]
+
+[ext_resource type="Texture2D" uid="uid://by7x6k8cfkfep" path="res://Sprites/InnerSlice.png" id="1_isr4g"]
+[ext_resource type="Texture2D" uid="uid://bekmtdylww0go" path="res://Sprites/InnerRingDivider.png" id="1_wxd0o"]
+[ext_resource type="Texture2D" uid="uid://d24flp2cv5nk2" path="res://Sprites/InnerRing.png" id="2_f2dx1"]
+[ext_resource type="Texture2D" uid="uid://dyotak7pe6ate" path="res://Sprites/InnerSlice2.png" id="2_y4eyf"]
+
+[node name="InnerRing" type="Node2D" unique_id=76950587]
+
+[node name="InnerSlice" type="Sprite2D" parent="." unique_id=766500302]
+position = Vector2(-46, 32)
+texture = ExtResource("1_isr4g")
+
+[node name="InnerSlice2" type="Sprite2D" parent="." unique_id=303646539]
+position = Vector2(46, 32)
+texture = ExtResource("1_isr4g")
+flip_h = true
+
+[node name="InnerSlice3" type="Sprite2D" parent="." unique_id=892166206]
+position = Vector2(-46, -32)
+texture = ExtResource("1_isr4g")
+flip_v = true
+
+[node name="InnerSlice4" type="Sprite2D" parent="." unique_id=411358325]
+position = Vector2(46, -32)
+texture = ExtResource("1_isr4g")
+flip_h = true
+flip_v = true
+
+[node name="InnerSlice5" type="Sprite2D" parent="." unique_id=1495054742]
+position = Vector2(0, 52)
+texture = ExtResource("2_y4eyf")
+
+[node name="InnerSlice6" type="Sprite2D" parent="." unique_id=1583756706]
+position = Vector2(0, -52)
+texture = ExtResource("2_y4eyf")
+flip_v = true
+
+[node name="InnerRingDivider" type="Sprite2D" parent="." unique_id=623013554]
+texture = ExtResource("1_wxd0o")
+
+[node name="InnerRingDivider2" type="Sprite2D" parent="." unique_id=1634955381]
+rotation = 1.0471976
+texture = ExtResource("1_wxd0o")
+
+[node name="InnerRingDivider3" type="Sprite2D" parent="." unique_id=1062013241]
+rotation = -1.0471976
+texture = ExtResource("1_wxd0o")
+
+[node name="Ring" type="Sprite2D" parent="." unique_id=1176643601]
+texture = ExtResource("2_f2dx1")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ykpiga1cwnd"
-path="res://.godot/imported/MiddleCircle.png-1f11723bbd0c208babd031d9e39cedbb.ctex"
+uid="uid://by7x6k8cfkfep"
+path="res://.godot/imported/InnerSlice.png-b9fd05e8b1517a82041448c4cdf333cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/MiddleCircle.png"
-dest_files=["res://.godot/imported/MiddleCircle.png-1f11723bbd0c208babd031d9e39cedbb.ctex"]
+source_file="res://Sprites/InnerSlice.png"
+dest_files=["res://.godot/imported/InnerSlice.png-b9fd05e8b1517a82041448c4cdf333cb.ctex"]
 
 [params]
 
