@@ -2,10 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://by7x6k8cfkfep" path="res://Sprites/InnerSlice.png" id="1_isr4g"]
 [ext_resource type="Texture2D" uid="uid://bekmtdylww0go" path="res://Sprites/InnerRingDivider.png" id="1_wxd0o"]
+[ext_resource type="Shader" uid="uid://sdisuq6auklm" path="res://Shader/HighlightOutline.gdshader" id="1_y4eyf"]
 [ext_resource type="Texture2D" uid="uid://d24flp2cv5nk2" path="res://Sprites/InnerRing.png" id="2_f2dx1"]
 [ext_resource type="Texture2D" uid="uid://dyotak7pe6ate" path="res://Sprites/InnerSlice2.png" id="2_y4eyf"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4l766"]
+shader = ExtResource("1_y4eyf")
+shader_parameter/clr = Color(1, 1, 1, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 0.0
+
 [node name="InnerRing" type="Node2D" unique_id=76950587]
+
+[node name="OutlineRing" type="Sprite2D" parent="." unique_id=515164806]
+material = SubResource("ShaderMaterial_4l766")
+texture = ExtResource("2_f2dx1")
 
 [node name="InnerSlice" type="Sprite2D" parent="." unique_id=766500302]
 position = Vector2(-46, 32)
@@ -47,5 +58,5 @@ texture = ExtResource("1_wxd0o")
 rotation = -1.0471976
 texture = ExtResource("1_wxd0o")
 
-[node name="Ring" type="Sprite2D" parent="." unique_id=1176643601]
+[node name="InnerRing" type="Sprite2D" parent="." unique_id=1176643601]
 texture = ExtResource("2_f2dx1")

@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://ds5yfyb8j7k16"]
 
+[ext_resource type="Shader" uid="uid://sdisuq6auklm" path="res://Shader/HighlightOutline.gdshader" id="1_dnvcs"]
 [ext_resource type="Texture2D" uid="uid://gsqvjvidh65r" path="res://Sprites/MiddleRingDivider.png" id="1_spxxd"]
 [ext_resource type="Texture2D" uid="uid://dfv0v85knx6e1" path="res://Sprites/MiddleSlice.png" id="2_5pag3"]
 [ext_resource type="Texture2D" uid="uid://q3vsn3dypsq8" path="res://Sprites/MiddleRing.png" id="2_dikcv"]
 [ext_resource type="Texture2D" uid="uid://cux2twacw4a24" path="res://Sprites/MiddleSlice2.png" id="3_5pag3"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21xkr"]
+shader = ExtResource("1_dnvcs")
+shader_parameter/clr = Color(1, 1, 1, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 0.0
+
 [node name="MiddleRing" type="Node2D" unique_id=901090933]
 
 [node name="OutlineRing" type="Sprite2D" parent="." unique_id=1057851169]
+material = SubResource("ShaderMaterial_21xkr")
 texture = ExtResource("2_dikcv")
 
 [node name="MiddleSlice" type="Sprite2D" parent="." unique_id=1491141781]

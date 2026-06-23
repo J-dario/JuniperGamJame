@@ -10,7 +10,7 @@
 shader = ExtResource("2_ywkmb")
 shader_parameter/clr = Color(1, 1, 1, 1)
 shader_parameter/type = 2
-shader_parameter/thickness = 3.0
+shader_parameter/thickness = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0pijx"]
 shader = ExtResource("2_ywkmb")

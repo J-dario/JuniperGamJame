@@ -4,8 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://lvn7k773basn" path="res://Sprites/Center.png" id="2_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://780r3dkf80uw" path="res://Sprites/DeadCenter.png" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://c8m2oi8tou6t5" path="res://Scenes/outer_ring.tscn" id="4_kry3j"]
+[ext_resource type="Shader" uid="uid://sdisuq6auklm" path="res://Shader/HighlightOutline.gdshader" id="5_6bp64"]
 [ext_resource type="PackedScene" uid="uid://ds5yfyb8j7k16" path="res://Scenes/middle_ring.tscn" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://bvw53c30gmm22" path="res://Scenes/inner_ring.tscn" id="6_21xkr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21xkr"]
+shader = ExtResource("5_6bp64")
+shader_parameter/clr = Color(1, 1, 1, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 0.0
 
 [node name="Main" type="Node2D" unique_id=1269433863]
 
@@ -21,6 +28,7 @@ script = ExtResource("1_6bp64")
 [node name="InnerRing" parent="." unique_id=76950587 instance=ExtResource("6_21xkr")]
 
 [node name="Center" type="Sprite2D" parent="." unique_id=873971095]
+material = SubResource("ShaderMaterial_21xkr")
 texture = ExtResource("2_jjvhh")
 
 [node name="DeadCenter" type="Sprite2D" parent="." unique_id=1155893362]
