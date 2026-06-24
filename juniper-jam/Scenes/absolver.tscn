@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cywysdhq1odew"]
+
+[ext_resource type="Script" uid="uid://b1730e0mx866n" path="res://Scipts/absolver.gd" id="1_5niq3"]
+[ext_resource type="Texture2D" uid="uid://b12m6y85qxt2s" path="res://icon.svg" id="1_m3aph"]
+
+[node name="Absolver" type="Node2D" unique_id=1039611704]
+script = ExtResource("1_5niq3")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=759932171]
+visible = false
+scale = Vector2(0.05078116, 2.5429688)
+texture = ExtResource("1_m3aph")

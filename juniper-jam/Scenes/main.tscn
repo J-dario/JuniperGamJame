@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://byigv3itdmn30" path="res://Sprites/OuterSlice2.png" id="11_6iyac"]
 [ext_resource type="Texture2D" uid="uid://cpavbl4st7jwe" path="res://Sprites/OuterRingDivider.png" id="11_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://ctbe0j1h1nw4n" path="res://Sprites/OuterSlice.png" id="12_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://cywysdhq1odew" path="res://Scenes/absolver.tscn" id="14_jkdf5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fdnlq"]
 shader = ExtResource("5_6bp64")
@@ -197,6 +198,14 @@ texture = ExtResource("2_jjvhh")
 
 [node name="DeadCenter" type="Sprite2D" parent="." unique_id=1155893362]
 texture = ExtResource("3_kry3j")
+
+[node name="AbsolverLeft" parent="." unique_id=1615817253 instance=ExtResource("14_jkdf5")]
+rotation = -1.0471976
+
+[node name="AbsolverMiddle" parent="." unique_id=1039611704 instance=ExtResource("14_jkdf5")]
+
+[node name="AbsolverRight" parent="." unique_id=2050477817 instance=ExtResource("14_jkdf5")]
+rotation = 1.0471976
 
 [editable path="OuterRing"]
 [editable path="OuterRing/Slices/Slice1"]
