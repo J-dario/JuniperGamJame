@@ -49,55 +49,61 @@ texture = ExtResource("10_6iyac")
 [node name="Slice1" parent="OuterRing/Slices" parent_id_path=PackedInt32Array(1098982437, 754568485) index="0" unique_id=975003754]
 position = Vector2(0, -116)
 
-[node name="Sprite2D" parent="OuterRing/Slices/Slice1" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="OuterRing/Slices/Slice1" index="0" unique_id=2081241519]
 texture = ExtResource("11_6iyac")
 
-[node name="Spawner" parent="OuterRing/Slices/Slice1" index="1" unique_id=68243431]
+[node name="Spawner" parent="OuterRing/Slices/Slice1" index="2" unique_id=68243431]
 position = Vector2(0, -6)
 
 [node name="Slice2" parent="OuterRing/Slices" parent_id_path=PackedInt32Array(1098982437, 754568485) index="1" unique_id=946893411]
 position = Vector2(95, -60)
 
-[node name="Sprite2D" parent="OuterRing/Slices/Slice2" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="OuterRing/Slices/Slice2" index="0" unique_id=2081241519]
 texture = ExtResource("12_fdnlq")
+flip_h = true
 
-[node name="Spawner" parent="OuterRing/Slices/Slice2" index="1" unique_id=68243431]
+[node name="Spawner" parent="OuterRing/Slices/Slice2" index="2" unique_id=68243431]
 position = Vector2(10.6551, -0.99999475)
 
 [node name="Slice3" parent="OuterRing/Slices" parent_id_path=PackedInt32Array(1098982437, 754568485) index="2" unique_id=333323833]
 position = Vector2(95, 60)
 
-[node name="Sprite2D" parent="OuterRing/Slices/Slice3" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="OuterRing/Slices/Slice3" index="0" unique_id=2081241519]
 texture = ExtResource("12_fdnlq")
+flip_h = true
+flip_v = false
 
-[node name="Spawner" parent="OuterRing/Slices/Slice3" index="1" unique_id=68243431]
+[node name="Spawner" parent="OuterRing/Slices/Slice3" index="2" unique_id=68243431]
 position = Vector2(10.655096, 1.000002)
 
 [node name="Slice4" parent="OuterRing/Slices" parent_id_path=PackedInt32Array(1098982437, 754568485) index="3" unique_id=146302543]
 position = Vector2(0, 116)
 
-[node name="Sprite2D" parent="OuterRing/Slices/Slice4" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="OuterRing/Slices/Slice4" index="0" unique_id=2081241519]
 texture = ExtResource("11_6iyac")
+flip_h = true
+flip_v = false
 
-[node name="Spawner" parent="OuterRing/Slices/Slice4" index="1" unique_id=68243431]
+[node name="Spawner" parent="OuterRing/Slices/Slice4" index="2" unique_id=68243431]
 position = Vector2(-1.0665579e-05, 6.0000005)
 
 [node name="Slice5" parent="OuterRing/Slices" parent_id_path=PackedInt32Array(1098982437, 754568485) index="4" unique_id=622125013]
 position = Vector2(-95, 60)
 
-[node name="Sprite2D" parent="OuterRing/Slices/Slice5" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="OuterRing/Slices/Slice5" index="0" unique_id=2081241519]
 texture = ExtResource("12_fdnlq")
+flip_v = false
 
-[node name="Spawner" parent="OuterRing/Slices/Slice5" index="1" unique_id=68243431]
+[node name="Spawner" parent="OuterRing/Slices/Slice5" index="2" unique_id=68243431]
 position = Vector2(-10.655109, 0.99999493)
 
 [node name="Slice6" parent="OuterRing/Slices" parent_id_path=PackedInt32Array(1098982437, 754568485) index="5" unique_id=1376971184]
 position = Vector2(-95, -60)
 
-[node name="Sprite2D" parent="OuterRing/Slices/Slice6" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="OuterRing/Slices/Slice6" index="0" unique_id=2081241519]
 texture = ExtResource("12_fdnlq")
 
-[node name="Spawner" parent="OuterRing/Slices/Slice6" index="1" unique_id=68243431]
+[node name="Spawner" parent="OuterRing/Slices/Slice6" index="2" unique_id=68243431]
 position = Vector2(-10.6551, -0.99999475)
 
 [node name="InnerRingDivider" parent="OuterRing/Pieces" parent_id_path=PackedInt32Array(1098982437, 643362135) index="0" unique_id=623013554]
@@ -124,55 +130,61 @@ texture = ExtResource("8_344ge")
 [node name="Slice1" parent="MiddleRing/Slices" parent_id_path=PackedInt32Array(1073295214, 754568485) index="0" unique_id=975003754]
 position = Vector2(0, -85)
 
-[node name="Sprite2D" parent="MiddleRing/Slices/Slice1" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="MiddleRing/Slices/Slice1" index="0" unique_id=2081241519]
 texture = ExtResource("9_hptm8")
 
-[node name="Spawner" parent="MiddleRing/Slices/Slice1" index="1" unique_id=68243431]
+[node name="Spawner" parent="MiddleRing/Slices/Slice1" index="2" unique_id=68243431]
 position = Vector2(0, -5)
 
 [node name="Slice2" parent="MiddleRing/Slices" parent_id_path=PackedInt32Array(1073295214, 754568485) index="1" unique_id=946893411]
 position = Vector2(72, -46)
 
-[node name="Sprite2D" parent="MiddleRing/Slices/Slice2" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="MiddleRing/Slices/Slice2" index="0" unique_id=2081241519]
 texture = ExtResource("10_d1ilt")
+flip_h = true
 
-[node name="Spawner" parent="MiddleRing/Slices/Slice2" index="1" unique_id=68243431]
+[node name="Spawner" parent="MiddleRing/Slices/Slice2" index="2" unique_id=68243431]
 position = Vector2(5.9422894, 1.0000043)
 
 [node name="Slice3" parent="MiddleRing/Slices" parent_id_path=PackedInt32Array(1073295214, 754568485) index="2" unique_id=333323833]
 position = Vector2(72, 46)
 
-[node name="Sprite2D" parent="MiddleRing/Slices/Slice3" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="MiddleRing/Slices/Slice3" index="0" unique_id=2081241519]
 texture = ExtResource("10_d1ilt")
+flip_h = true
+flip_v = false
 
-[node name="Spawner" parent="MiddleRing/Slices/Slice3" index="1" unique_id=68243431]
+[node name="Spawner" parent="MiddleRing/Slices/Slice3" index="2" unique_id=68243431]
 position = Vector2(5.9422855, -0.9999966)
 
 [node name="Slice4" parent="MiddleRing/Slices" parent_id_path=PackedInt32Array(1073295214, 754568485) index="3" unique_id=146302543]
 position = Vector2(0, 85)
 
-[node name="Sprite2D" parent="MiddleRing/Slices/Slice4" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="MiddleRing/Slices/Slice4" index="0" unique_id=2081241519]
 texture = ExtResource("9_hptm8")
+flip_h = true
+flip_v = false
 
-[node name="Spawner" parent="MiddleRing/Slices/Slice4" index="1" unique_id=68243431]
+[node name="Spawner" parent="MiddleRing/Slices/Slice4" index="2" unique_id=68243431]
 position = Vector2(-7.8082085e-06, 5.0000005)
 
 [node name="Slice5" parent="MiddleRing/Slices" parent_id_path=PackedInt32Array(1073295214, 754568485) index="4" unique_id=622125013]
 position = Vector2(-72, 46)
 
-[node name="Sprite2D" parent="MiddleRing/Slices/Slice5" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="MiddleRing/Slices/Slice5" index="0" unique_id=2081241519]
 texture = ExtResource("10_d1ilt")
+flip_v = false
 
-[node name="Spawner" parent="MiddleRing/Slices/Slice5" index="1" unique_id=68243431]
+[node name="Spawner" parent="MiddleRing/Slices/Slice5" index="2" unique_id=68243431]
 position = Vector2(-5.942286, -0.9999968)
 
 [node name="Slice6" parent="MiddleRing/Slices" parent_id_path=PackedInt32Array(1073295214, 754568485) index="5" unique_id=1376971184]
 position = Vector2(-72, -46)
 
-[node name="Sprite2D" parent="MiddleRing/Slices/Slice6" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="MiddleRing/Slices/Slice6" index="0" unique_id=2081241519]
 texture = ExtResource("10_d1ilt")
 
-[node name="Spawner" parent="MiddleRing/Slices/Slice6" index="1" unique_id=68243431]
+[node name="Spawner" parent="MiddleRing/Slices/Slice6" index="2" unique_id=68243431]
 position = Vector2(-5.9422894, 1.0000038)
 
 [node name="InnerRingDivider" parent="MiddleRing/Pieces" parent_id_path=PackedInt32Array(1073295214, 643362135) index="0" unique_id=623013554]

@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://b1730e0mx866n" path="res://Scipts/absolver.gd" id="1_5niq3"]
 [ext_resource type="Texture2D" uid="uid://b12m6y85qxt2s" path="res://icon.svg" id="1_m3aph"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(118.15408, 128.58994)
+
 [node name="Absolver" type="Node2D" unique_id=1039611704]
 script = ExtResource("1_5niq3")
 
@@ -10,3 +13,13 @@ script = ExtResource("1_5niq3")
 visible = false
 scale = Vector2(0.05078116, 2.5429688)
 texture = ExtResource("1_m3aph")
+
+[node name="Area2D" type="Area2D" parent="Icon" unique_id=1971959744]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D" unique_id=433148394]
+position = Vector2(-2.3475075e-06, 0.19662486)
+scale = Vector2(0.9999994, 0.9999993)
+shape = SubResource("RectangleShape2D_g4v7s")
+disabled = true

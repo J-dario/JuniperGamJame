@@ -66,6 +66,10 @@ func _process(delta: float) -> void:
 		elif selected_mode == SelectedMode.ABSOLVE:
 			var new_index = (selected_absolver_index + 1) % selected_absolver_arr.size()
 			update_selected_absolver(new_index)
+	
+	elif Input.is_action_just_pressed("Confirm"):
+		if selected_mode == SelectedMode.ABSOLVE:
+			selected_absolver.absolve()
 
 func update_selected_ring(new_index: int) -> void:
 	var prev_ring = selected_ring_arr[selected_ring_index]
