@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://duuflij4xvyhw"]
-
-[ext_resource type="Texture2D" uid="uid://lvn7k773basn" path="res://Sprites/Center.png" id="1_tr34o"]
-
-[node name="Center" type="Sprite2D" unique_id=271461301]
-position = Vector2(326, 132)
-texture = ExtResource("1_tr34o")

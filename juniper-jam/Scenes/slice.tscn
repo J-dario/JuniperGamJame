@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cmn72ik0aynw"]
+
+[ext_resource type="Script" uid="uid://bc7juxy41p5t" path="res://Scipts/slice.gd" id="1_y4txe"]
+[ext_resource type="Texture2D" uid="uid://dyotak7pe6ate" path="res://Sprites/InnerSlice2.png" id="2_xvs4d"]
+
+[node name="Slice" type="Node2D" unique_id=975003754]
+script = ExtResource("1_y4txe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2081241519]
+texture = ExtResource("2_xvs4d")
+flip_v = true
+
+[node name="Spawner" type="Marker2D" parent="." unique_id=68243431]
+position = Vector2(0, -2)
