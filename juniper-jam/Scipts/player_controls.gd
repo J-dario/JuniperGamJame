@@ -18,6 +18,7 @@ var selected_absolver
 @onready var vajuses: Node2D = $"../UI/Vajuses"
 @onready var stars: Node2D = $"../UI/Stars"
 @onready var dharma: Node2D = $"../UI/Dharma"
+@onready var wheel: Node2D = $"../Wheel"
 
 func _ready() -> void:
 	selected_ring_arr = [
@@ -44,21 +45,25 @@ func _process(delta: float) -> void:
 		selected_mode = SelectedMode.RING
 		selected_ring.highlightRing()
 		selected_absolver.deselect()
+		wheel.playDownSound()
 	
 	elif Input.is_action_just_pressed("SwitchToAbsolve") and selected_mode != SelectedMode.ABSOLVE:
 		selected_mode = SelectedMode.ABSOLVE
 		selected_ring.unhighlightRing()
 		selected_absolver.select()
+		wheel.playDownSound()
 
 	elif Input.is_action_just_pressed("MoveSelectUp"):
 		if selected_mode == SelectedMode.RING:
 			var new_index = (selected_ring_index + 1) % selected_ring_arr.size()
 			update_selected_ring(new_index)
+			wheel.playUpSound()
 
 	elif Input.is_action_just_pressed("MoveSelectDown"):
 		if selected_mode == SelectedMode.RING:
 			var new_index = (selected_ring_index - 1 + selected_ring_arr.size()) % selected_ring_arr.size()
 			update_selected_ring(new_index)
+			wheel.playDownSound()
 	
 	elif Input.is_action_just_pressed("MoveSelectLeft"):
 		if selected_mode == SelectedMode.RING and (get_parent().num_turns != 0 or get_parent().stars != 0):
@@ -86,6 +91,7 @@ func _process(delta: float) -> void:
 		elif selected_mode == SelectedMode.ABSOLVE:
 			var new_index = (selected_absolver_index - 1 + selected_absolver_arr.size()) % selected_absolver_arr.size()
 			update_selected_absolver(new_index)
+			wheel.playUpSound()
 		
 	elif Input.is_action_just_pressed("MoveSelectRight"):
 		if selected_mode == SelectedMode.RING and (get_parent().num_turns != 0 or get_parent().stars != 0):
@@ -112,6 +118,7 @@ func _process(delta: float) -> void:
 		elif selected_mode == SelectedMode.ABSOLVE:
 			var new_index = (selected_absolver_index + 1) % selected_absolver_arr.size()
 			update_selected_absolver(new_index)
+			wheel.playUpSound()
 	
 	elif Input.is_action_just_pressed("Confirm"):
 		if selected_mode == SelectedMode.ABSOLVE and (get_parent().num_absolves != 0 or get_parent().stars != 0):

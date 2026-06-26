@@ -9,6 +9,7 @@ extends Node2D
 @onready var logo: Sprite2D = $Logo
 @onready var play: Sprite2D = $Play
 @onready var level_select: Sprite2D = $LevelSelect
+@onready var audio_stream_player_2d_3: AudioStreamPlayer2D = $Wheel/AudioStreamPlayer2D3
 
 
 var startRotate = false
@@ -46,6 +47,8 @@ func _on_play_button_pressed() -> void:
 	
 	transitioning = true
 	
+	audio_stream_player_2d_3.play()
+	
 	var tween := get_tree().create_tween()
 	tween.set_parallel(true)
 
@@ -58,7 +61,7 @@ func _on_play_button_pressed() -> void:
 	tween.tween_property(dead_center, "rotation", 0.0, 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	
 	tween.finished.connect(func():
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.25).timeout
 		movelevel()
 	)
 

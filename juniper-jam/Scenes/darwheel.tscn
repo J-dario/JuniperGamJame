@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ul5mnykdv3d7" path="res://Sprites/UI/WheelHole.png" id="2_lqmym"]
 [ext_resource type="Shader" uid="uid://b1i26dax6rbgd" path="res://Shaders/dissolve.gdshader" id="3_gvp4c"]
 [ext_resource type="Texture2D" uid="uid://cpb7uqrnsb7nt" path="res://Sprites/UI/WheelIcon.png" id="4_njmqp"]
+[ext_resource type="AudioStream" uid="uid://dlbxpvi7755vu" path="res://Audio/floraphonic-fire-torch-whoosh-1-186585.mp3" id="5_njmqp"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wahgm"]
 
@@ -59,6 +60,7 @@ shader_parameter/direction = 90.0
 script = ExtResource("1_lqmym")
 
 [node name="VajraUsed" type="Sprite2D" parent="." unique_id=1042350637]
+visible = false
 texture = ExtResource("2_lqmym")
 
 [node name="Item" type="CanvasGroup" parent="." unique_id=1481621900]
@@ -73,3 +75,6 @@ modulate = Color(0, 0, 0, 0.26666668)
 show_behind_parent = true
 position = Vector2(2, 2)
 texture = ExtResource("4_njmqp")
+
+[node name="usedSound" type="AudioStreamPlayer2D" parent="." unique_id=1664352780]
+stream = ExtResource("5_njmqp")

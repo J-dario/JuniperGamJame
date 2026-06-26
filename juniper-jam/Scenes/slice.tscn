@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bc7juxy41p5t" path="res://Scipts/slice.gd" id="1_y4txe"]
 [ext_resource type="Texture2D" uid="uid://cmjgrxex2tfjk" path="res://Sprites/Heaven/InnerHeaven.png" id="2_xvs4d"]
+[ext_resource type="PackedScene" uid="uid://cbmv4c421qf7k" path="res://Scenes/smoke.tscn" id="3_bdvt2"]
 
 [sub_resource type="Shader" id="Shader_xvs4d"]
 code = "shader_type canvas_item;
@@ -54,6 +55,8 @@ texture = ExtResource("2_xvs4d")
 flip_v = true
 
 [node name="SoulSprite" type="Sprite2D" parent="." unique_id=113146811]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
 material = SubResource("ShaderMaterial_xvs4d")
 
 [node name="Spawner" type="Marker2D" parent="." unique_id=68243431]
@@ -65,6 +68,10 @@ position = Vector2(0, 2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D" unique_id=765552763]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="GPUParticles2D" parent="." unique_id=6069080 instance=ExtResource("3_bdvt2")]
+emitting = false
+one_shot = true
 
 [connection signal="area_entered" from="Spawner/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Spawner/Area2D" to="." method="_on_area_2d_area_exited"]

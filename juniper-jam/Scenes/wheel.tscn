@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://nno4p6w8325r"]
 
+[ext_resource type="Script" uid="uid://bs7jio1dyxx2j" path="res://Scipts/wheel.gd" id="1_3421s"]
 [ext_resource type="Script" uid="uid://sdtcf4upqlpd" path="res://Scipts/camera_2d.gd" id="1_j3ys6"]
 [ext_resource type="Texture2D" uid="uid://kyqq2bhhagjb" path="res://Sprites/WheelParts/WheelShadow.png" id="2_4d8dc"]
 [ext_resource type="PackedScene" uid="uid://bvw53c30gmm22" path="res://Scenes/ring.tscn" id="2_6g4i7"]
@@ -23,14 +24,13 @@
 [ext_resource type="Texture2D" uid="uid://lvn7k773basn" path="res://Sprites/WheelParts/Center.png" id="16_kot28"]
 [ext_resource type="Texture2D" uid="uid://780r3dkf80uw" path="res://Sprites/WheelParts/DeadCenter.png" id="17_38ww8"]
 [ext_resource type="PackedScene" uid="uid://cywysdhq1odew" path="res://Scenes/absolver.tscn" id="18_kos8p"]
+[ext_resource type="AudioStream" uid="uid://c38blmud7b2s1" path="res://Audio/pickupCoin (5).wav" id="25_qrp68"]
+[ext_resource type="AudioStream" uid="uid://bm3glxihw0fvi" path="res://Audio/pickupCoin (4).wav" id="26_4n3ur"]
+[ext_resource type="AudioStream" uid="uid://do4yq7vg513g1" path="res://Audio/freesound_community-wheel-spin-click-slow-down-fast-101154.mp3" id="27_3421s"]
+[ext_resource type="AudioStream" uid="uid://vrs2441ms3an" path="res://Audio/wheelSpinShort.mp3" id="28_qrp68"]
+[ext_resource type="AudioStream" uid="uid://d0cvke8oolwxj" path="res://Audio/select.wav" id="29_4n3ur"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kuwvp"]
-shader = ExtResource("3_x1e8s")
-shader_parameter/clr = Color(1, 1, 1, 1)
-shader_parameter/type = 2
-shader_parameter/thickness = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n56es"]
 shader = ExtResource("3_x1e8s")
 shader_parameter/clr = Color(1, 1, 1, 1)
 shader_parameter/type = 2
@@ -42,15 +42,21 @@ shader_parameter/clr = Color(1, 1, 1, 1)
 shader_parameter/type = 2
 shader_parameter/thickness = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n56es"]
+shader = ExtResource("3_x1e8s")
+shader_parameter/clr = Color(1, 1, 1, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 0.0
+
 [node name="Wheel" type="Node2D" unique_id=1269433863]
+script = ExtResource("1_3421s")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=407829814]
 script = ExtResource("1_j3ys6")
 
 [node name="WheelShadow" type="Sprite2D" parent="." unique_id=967499147]
 modulate = Color(0, 0, 0, 0.16078432)
-position = Vector2(0, 8)
-scale = Vector2(1.0355741, 1.0355741)
+position = Vector2(7, 14)
 texture = ExtResource("2_4d8dc")
 
 [node name="OuterRing" parent="." unique_id=76950587 instance=ExtResource("2_6g4i7")]
@@ -128,6 +134,13 @@ texture = ExtResource("4_kuwvp")
 [node name="Icon" parent="OuterRing" index="3" unique_id=1337526502]
 position = Vector2(0, -122)
 
+[node name="MiddleShadow" type="Sprite2D" parent="." unique_id=2023239734]
+modulate = Color(0, 0, 0, 0.3372549)
+material = SubResource("ShaderMaterial_21xkr")
+position = Vector2(5, 8)
+scale = Vector2(2.995, 2.995)
+texture = ExtResource("16_kot28")
+
 [node name="MiddleRing" parent="." unique_id=399078688 instance=ExtResource("2_6g4i7")]
 
 [node name="OutlineRing" parent="MiddleRing" index="0" unique_id=515164806]
@@ -203,12 +216,30 @@ texture = ExtResource("10_3421s")
 [node name="Icon" parent="MiddleRing" index="3" unique_id=1337526502]
 position = Vector2(0, -90)
 
+[node name="InnerShadow" type="Sprite2D" parent="." unique_id=396110239]
+modulate = Color(0, 0, 0, 0.3372549)
+material = SubResource("ShaderMaterial_21xkr")
+position = Vector2(3, 6)
+scale = Vector2(2.13, 2.13)
+texture = ExtResource("16_kot28")
+
 [node name="InnerRing" parent="." unique_id=962998103 instance=ExtResource("2_6g4i7")]
+
+[node name="CenterShadow" type="Sprite2D" parent="." unique_id=1681540125]
+modulate = Color(0, 0, 0, 0.3372549)
+material = SubResource("ShaderMaterial_21xkr")
+position = Vector2(3, 5)
+texture = ExtResource("16_kot28")
 
 [node name="Center" type="Sprite2D" parent="." unique_id=873971095]
 material = SubResource("ShaderMaterial_21xkr")
 texture = ExtResource("16_kot28")
 metadata/_edit_lock_ = true
+
+[node name="DeadCenterShadow" type="Sprite2D" parent="." unique_id=1956909997]
+modulate = Color(0, 0, 0, 0.38039216)
+position = Vector2(3, 4)
+texture = ExtResource("17_38ww8")
 
 [node name="DeadCenter" type="Sprite2D" parent="." unique_id=1155893362]
 texture = ExtResource("17_38ww8")
@@ -221,6 +252,21 @@ rotation = -1.0471976
 
 [node name="AbsolverRight" parent="." unique_id=2050477817 instance=ExtResource("18_kos8p")]
 rotation = 1.0471976
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1566462529]
+stream = ExtResource("25_qrp68")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=38327809]
+stream = ExtResource("26_4n3ur")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="." unique_id=1546934800]
+stream = ExtResource("27_3421s")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="." unique_id=1750342190]
+stream = ExtResource("28_qrp68")
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="." unique_id=1054663380]
+stream = ExtResource("29_4n3ur")
 
 [editable path="OuterRing"]
 [editable path="OuterRing/Slices/Slice1"]

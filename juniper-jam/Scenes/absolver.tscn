@@ -220,6 +220,6 @@ stream = ExtResource("4_uvg4f")
 
 [node name="Bell" type="AudioStreamPlayer" parent="." unique_id=179466737]
 stream = ExtResource("5_uvg4f")
-volume_db = -2.0
+volume_db = -1.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

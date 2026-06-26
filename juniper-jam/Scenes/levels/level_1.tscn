@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://do70fd44jjc3o" path="res://Scenes/star.tscn" id="5_tlryv"]
 [ext_resource type="PackedScene" uid="uid://dtcrv3f3xc5rb" path="res://Scenes/vajra.tscn" id="7_dsuda"]
 [ext_resource type="PackedScene" uid="uid://bx62xiahr00of" path="res://Scenes/darwheel.tscn" id="7_qek6e"]
+[ext_resource type="AudioStream" uid="uid://d0cvke8oolwxj" path="res://Audio/select.wav" id="8_dsuda"]
+[ext_resource type="AudioStream" uid="uid://dfkpc1kbl4eu8" path="res://Audio/starCollect.wav" id="8_tlryv"]
 
 [node name="level1" type="Node2D" unique_id=591169119]
 script = ExtResource("1_cru1l")
@@ -24,6 +26,7 @@ metadata/_edit_lock_ = true
 [node name="Wheel" parent="." unique_id=1269433863 instance=ExtResource("3_xfk5q")]
 
 [node name="UI" type="Node2D" parent="." unique_id=1062192103]
+modulate = Color(1, 1, 1, 0)
 
 [node name="Stars" type="Node2D" parent="UI" unique_id=1546793942]
 
@@ -57,6 +60,28 @@ position = Vector2(189, 3)
 
 [node name="Dhrama3" parent="UI/Dharma" unique_id=151187398 instance=ExtResource("7_qek6e")]
 position = Vector2(177, 76)
+
+[node name="Button" type="Button" parent="." unique_id=902103693]
+offset_left = 260.0
+offset_top = -171.0
+offset_right = 314.0
+offset_bottom = -140.0
+text = "RESET"
+
+[node name="Select" type="AudioStreamPlayer" parent="Button" unique_id=1995576591]
+stream = ExtResource("8_dsuda")
+
+[node name="Label" type="Label" parent="." unique_id=1091387306]
+offset_left = -318.0
+offset_top = 155.0
+offset_right = -278.0
+offset_bottom = 178.0
+text = "false"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2091800537]
+stream = ExtResource("8_tlryv")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 
 [editable path="Wheel"]
 [editable path="Wheel/OuterRing"]

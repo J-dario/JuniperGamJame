@@ -233,9 +233,6 @@ position = Vector2(0, 167)
 scale = Vector2(1.5, 1.5)
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" parent="Wheel" index="0" unique_id=407829814]
-visible = false
-
 [node name="OuterRing" parent="Wheel" index="2" unique_id=76950587]
 script = null
 
@@ -260,7 +257,7 @@ script = null
 [node name="Slice6" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="5" unique_id=1376971184]
 script = null
 
-[node name="MiddleRing" parent="Wheel" index="3" unique_id=399078688]
+[node name="MiddleRing" parent="Wheel" index="4" unique_id=399078688]
 script = null
 
 [node name="Slice1" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="0" unique_id=975003754]
@@ -281,7 +278,7 @@ script = null
 [node name="Slice6" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="5" unique_id=1376971184]
 script = null
 
-[node name="InnerRing" parent="Wheel" index="4" unique_id=962998103]
+[node name="InnerRing" parent="Wheel" index="6" unique_id=962998103]
 script = null
 
 [node name="Slice1" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="0" unique_id=975003754]

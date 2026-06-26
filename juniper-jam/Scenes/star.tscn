@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://blba26o37f5gp" path="res://Sprites/UI/StarHole.png" id="2_fwpdb"]
 [ext_resource type="Texture2D" uid="uid://by1dx3ha0y8oa" path="res://Sprites/UI/Star.png" id="3_1a88l"]
 [ext_resource type="Shader" uid="uid://b1i26dax6rbgd" path="res://Shaders/dissolve.gdshader" id="3_wgp3r"]
+[ext_resource type="AudioStream" uid="uid://djm1c1rqx5p5d" path="res://Audio/floraphonic-fireball-whoosh-2-179126.mp3" id="5_wgp3r"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wahgm"]
 
@@ -59,6 +60,7 @@ shader_parameter/direction = 90.0
 script = ExtResource("1_fwpdb")
 
 [node name="VajraUsed" type="Sprite2D" parent="." unique_id=1042350637]
+visible = false
 texture = ExtResource("2_fwpdb")
 
 [node name="Item" type="CanvasGroup" parent="." unique_id=1481621900]
@@ -73,3 +75,6 @@ modulate = Color(0, 0, 0, 0.26666668)
 show_behind_parent = true
 position = Vector2(1, 2)
 texture = ExtResource("3_1a88l")
+
+[node name="usedSound" type="AudioStreamPlayer2D" parent="." unique_id=874348351]
+stream = ExtResource("5_wgp3r")
