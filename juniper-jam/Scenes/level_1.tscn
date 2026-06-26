@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b1tybt0ete4mh"]
+
+[ext_resource type="Script" uid="uid://48tno0u5v488" path="res://Scipts/player_controls.gd" id="1_vk57k"]
+[ext_resource type="Texture2D" uid="uid://ddw7vf8xp81mp" path="res://Sprites/BG.png" id="2_8ffim"]
+
+[node name="level1" type="Node2D" unique_id=591169119]
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1575711124]
+texture = ExtResource("2_8ffim")
+metadata/_edit_lock_ = true
+
+[node name="PlayerControls" type="Node2D" parent="." unique_id=1649571693]
+script = ExtResource("1_vk57k")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=795995580]
+metadata/_edit_lock_ = true

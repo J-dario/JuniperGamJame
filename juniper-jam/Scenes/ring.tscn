@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://bvw53c30gmm22"]
 
-[ext_resource type="Texture2D" uid="uid://by7x6k8cfkfep" path="res://Sprites/InnerSlice.png" id="1_isr4g"]
-[ext_resource type="Texture2D" uid="uid://bekmtdylww0go" path="res://Sprites/InnerRingDivider.png" id="1_wxd0o"]
+[ext_resource type="Texture2D" uid="uid://bekmtdylww0go" path="res://Sprites/WheelParts/InnerRingDivider.png" id="1_wxd0o"]
 [ext_resource type="Shader" uid="uid://sdisuq6auklm" path="res://Shaders/HighlightOutline.gdshader" id="1_y4eyf"]
 [ext_resource type="Script" uid="uid://dql5go73j50ek" path="res://Scipts/ring.gd" id="1_y8o3v"]
-[ext_resource type="Texture2D" uid="uid://d24flp2cv5nk2" path="res://Sprites/InnerRing.png" id="2_f2dx1"]
+[ext_resource type="Texture2D" uid="uid://d24flp2cv5nk2" path="res://Sprites/WheelParts/InnerRing.png" id="2_f2dx1"]
 [ext_resource type="PackedScene" uid="uid://cmn72ik0aynw" path="res://Scenes/slice.tscn" id="4_mlavw"]
+[ext_resource type="Texture2D" uid="uid://cmjgrxex2tfjk" path="res://Sprites/Heaven/InnerHeaven.png" id="5_3m48k"]
+[ext_resource type="Texture2D" uid="uid://bawakync8gcda" path="res://Sprites/Asura/InnerAsura.png" id="6_gi28n"]
+[ext_resource type="Texture2D" uid="uid://c8edrmdo4cb7x" path="res://Sprites/Ghosts/InnerGhosts.png" id="7_t3osq"]
 [ext_resource type="Texture2D" uid="uid://b12m6y85qxt2s" path="res://icon.svg" id="7_w3t33"]
+[ext_resource type="Texture2D" uid="uid://cc1ub0itgdsfo" path="res://Sprites/Hell/InnerHell.png" id="8_yjacp"]
+[ext_resource type="Texture2D" uid="uid://r215j7v6q5o1" path="res://Sprites/Animal/InnerAnimal.png" id="9_yjacp"]
+[ext_resource type="Texture2D" uid="uid://cptdfgqju3rx6" path="res://Sprites/Human/InnerHuman.png" id="10_5yg7t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4l766"]
 shader = ExtResource("1_y4eyf")
@@ -27,59 +32,66 @@ texture = ExtResource("2_f2dx1")
 position = Vector2(0, -51)
 soulType = 1
 
+[node name="SliceSprite" parent="Slices/Slice1" index="0" unique_id=2081241519]
+texture = ExtResource("5_3m48k")
+flip_v = false
+
 [node name="Slice2" parent="Slices" unique_id=946893411 instance=ExtResource("4_mlavw")]
 position = Vector2(45, -32)
 soulType = 1
 
-[node name="Sprite2D" parent="Slices/Slice2" index="0" unique_id=2081241519]
-texture = ExtResource("1_isr4g")
-flip_h = true
+[node name="SliceSprite" parent="Slices/Slice2" index="0" unique_id=2081241519]
+texture = ExtResource("6_gi28n")
+flip_v = false
 
-[node name="Spawner" parent="Slices/Slice2" index="1" unique_id=68243431]
+[node name="Spawner" parent="Slices/Slice2" index="2" unique_id=68243431]
 position = Vector2(0.89934564, 5.5000043)
 
 [node name="Slice3" parent="Slices" unique_id=333323833 instance=ExtResource("4_mlavw")]
 position = Vector2(45, 32)
 soulType = 1
 
-[node name="Sprite2D" parent="Slices/Slice3" index="0" unique_id=2081241519]
-texture = ExtResource("1_isr4g")
-flip_h = true
+[node name="SliceSprite" parent="Slices/Slice3" index="0" unique_id=2081241519]
+texture = ExtResource("7_t3osq")
 flip_v = false
 
-[node name="Spawner" parent="Slices/Slice3" index="1" unique_id=68243431]
+[node name="Spawner" parent="Slices/Slice3" index="2" unique_id=68243431]
 position = Vector2(0.8993429, -5.499999)
 
 [node name="Slice4" parent="Slices" unique_id=146302543 instance=ExtResource("4_mlavw")]
 position = Vector2(0, 51)
 soulType = 1
 
-[node name="Sprite2D" parent="Slices/Slice4" index="0" unique_id=2081241519]
+[node name="SliceSprite" parent="Slices/Slice4" index="0" unique_id=2081241519]
+texture = ExtResource("8_yjacp")
 flip_h = true
 flip_v = false
 
-[node name="Spawner" parent="Slices/Slice4" index="1" unique_id=68243431]
+[node name="Spawner" parent="Slices/Slice4" index="2" unique_id=68243431]
 position = Vector2(1.7484555e-07, 2.0000005)
 
 [node name="Slice5" parent="Slices" unique_id=622125013 instance=ExtResource("4_mlavw")]
 position = Vector2(-45, 32)
 soulType = 1
 
-[node name="Sprite2D" parent="Slices/Slice5" index="0" unique_id=2081241519]
-texture = ExtResource("1_isr4g")
+[node name="SliceSprite" parent="Slices/Slice5" index="0" unique_id=2081241519]
+position = Vector2(-1, 0)
+texture = ExtResource("9_yjacp")
 flip_v = false
 
-[node name="Spawner" parent="Slices/Slice5" index="1" unique_id=68243431]
+[node name="Spawner" parent="Slices/Slice5" index="2" unique_id=68243431]
 position = Vector2(-0.8993436, -5.499999)
 
 [node name="Slice6" parent="Slices" unique_id=1376971184 instance=ExtResource("4_mlavw")]
 position = Vector2(-45, -32)
 soulType = 1
 
-[node name="Sprite2D" parent="Slices/Slice6" index="0" unique_id=2081241519]
-texture = ExtResource("1_isr4g")
+[node name="SliceSprite" parent="Slices/Slice6" index="0" unique_id=2081241519]
+position = Vector2(-1, 0)
+texture = ExtResource("10_5yg7t")
+flip_v = false
 
-[node name="Spawner" parent="Slices/Slice6" index="1" unique_id=68243431]
+[node name="Spawner" parent="Slices/Slice6" index="2" unique_id=68243431]
 position = Vector2(-0.89934576, 5.500004)
 
 [node name="Pieces" type="Node2D" parent="." unique_id=643362135]
