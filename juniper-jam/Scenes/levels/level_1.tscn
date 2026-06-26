@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bx62xiahr00of" path="res://Scenes/darwheel.tscn" id="7_qek6e"]
 
 [node name="level1" type="Node2D" unique_id=591169119]
-position = Vector2(-6, -1)
 script = ExtResource("1_cru1l")
 num_absolves = 3
 num_turns = 3

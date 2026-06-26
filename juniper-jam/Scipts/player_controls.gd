@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 			update_selected_ring(new_index)
 	
 	elif Input.is_action_just_pressed("MoveSelectLeft"):
-		if selected_mode == SelectedMode.RING and get_parent().num_turns != 0 or get_parent().stars != 0:
+		if selected_mode == SelectedMode.RING and (get_parent().num_turns != 0 or get_parent().stars != 0):
 			if get_parent().num_turns != 0:
 				get_parent().num_turns -= 1
 				selected_ring.rotateLeft()
@@ -88,7 +88,7 @@ func _process(delta: float) -> void:
 			update_selected_absolver(new_index)
 		
 	elif Input.is_action_just_pressed("MoveSelectRight"):
-		if selected_mode == SelectedMode.RING and get_parent().num_turns != 0 or get_parent().stars != 0:
+		if selected_mode == SelectedMode.RING and (get_parent().num_turns != 0 or get_parent().stars != 0):
 			if get_parent().num_turns != 0:
 				get_parent().num_turns -= 1
 				selected_ring.rotateRight()
@@ -114,7 +114,7 @@ func _process(delta: float) -> void:
 			update_selected_absolver(new_index)
 	
 	elif Input.is_action_just_pressed("Confirm"):
-		if selected_mode == SelectedMode.ABSOLVE and get_parent().num_absolves != 0 or get_parent().stars != 0:
+		if selected_mode == SelectedMode.ABSOLVE and (get_parent().num_absolves != 0 or get_parent().stars != 0):
 			if get_parent().num_absolves != 0:
 				get_parent().num_absolves -= 1
 				selected_absolver.absolve()

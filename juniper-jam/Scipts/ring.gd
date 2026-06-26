@@ -12,6 +12,8 @@ func unhighlightRing() -> void:
 
 func rotateRight() -> void:
 	rotation += deg_to_rad(60)
+	get_parent().get_parent().check_win()
 
 func rotateLeft() -> void:
 	rotation += deg_to_rad(-60)
+	get_parent().get_parent().check_win()
