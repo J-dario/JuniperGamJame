@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://nno4p6w8325r"]
 
+[ext_resource type="Script" uid="uid://sdtcf4upqlpd" path="res://Scipts/camera_2d.gd" id="1_j3ys6"]
+[ext_resource type="Texture2D" uid="uid://kyqq2bhhagjb" path="res://Sprites/WheelParts/WheelShadow.png" id="2_4d8dc"]
 [ext_resource type="PackedScene" uid="uid://bvw53c30gmm22" path="res://Scenes/ring.tscn" id="2_6g4i7"]
 [ext_resource type="Shader" uid="uid://sdisuq6auklm" path="res://Shaders/HighlightOutline.gdshader" id="3_x1e8s"]
 [ext_resource type="Texture2D" uid="uid://b7ok4514tr2fj" path="res://Sprites/WheelParts/OuterRing.png" id="4_kuwvp"]
@@ -22,6 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://780r3dkf80uw" path="res://Sprites/WheelParts/DeadCenter.png" id="17_38ww8"]
 [ext_resource type="PackedScene" uid="uid://cywysdhq1odew" path="res://Scenes/absolver.tscn" id="18_kos8p"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kuwvp"]
+shader = ExtResource("3_x1e8s")
+shader_parameter/clr = Color(1, 1, 1, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n56es"]
 shader = ExtResource("3_x1e8s")
 shader_parameter/clr = Color(1, 1, 1, 1)
@@ -36,10 +44,19 @@ shader_parameter/thickness = 0.0
 
 [node name="Wheel" type="Node2D" unique_id=1269433863]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=407829814]
+script = ExtResource("1_j3ys6")
+
+[node name="WheelShadow" type="Sprite2D" parent="." unique_id=967499147]
+modulate = Color(0, 0, 0, 0.16078432)
+position = Vector2(0, 8)
+scale = Vector2(1.0355741, 1.0355741)
+texture = ExtResource("2_4d8dc")
+
 [node name="OuterRing" parent="." unique_id=76950587 instance=ExtResource("2_6g4i7")]
 
 [node name="OutlineRing" parent="OuterRing" index="0" unique_id=515164806]
-material = SubResource("ShaderMaterial_n56es")
+material = SubResource("ShaderMaterial_kuwvp")
 texture = ExtResource("4_kuwvp")
 
 [node name="Slice1" parent="OuterRing/Slices" parent_id_path=PackedInt32Array(76950587, 754568485) index="0" unique_id=975003754]
@@ -204,8 +221,6 @@ rotation = -1.0471976
 
 [node name="AbsolverRight" parent="." unique_id=2050477817 instance=ExtResource("18_kos8p")]
 rotation = 1.0471976
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=407829814]
 
 [editable path="OuterRing"]
 [editable path="OuterRing/Slices/Slice1"]

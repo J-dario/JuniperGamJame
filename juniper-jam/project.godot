@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="JuniperJam"
-run/main_scene="uid://nno4p6w8325r"
+run/main_scene="uid://b1tybt0ete4mh"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*uid://dfworw4yhha38"
 
 [display]
 

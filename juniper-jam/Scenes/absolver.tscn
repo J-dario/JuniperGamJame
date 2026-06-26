@@ -1,20 +1,198 @@
 [gd_scene format=3 uid="uid://cywysdhq1odew"]
 
 [ext_resource type="Script" uid="uid://b1730e0mx866n" path="res://Scipts/absolver.gd" id="1_5niq3"]
-[ext_resource type="Texture2D" uid="uid://b12m6y85qxt2s" path="res://icon.svg" id="1_m3aph"]
+[ext_resource type="Texture2D" uid="uid://bfkn8j27ev7an" path="res://Sprites/BigStaff.png" id="2_5niq3"]
+[ext_resource type="Texture2D" uid="uid://6c6wqhtxxvdr" path="res://Sprites/Dotted.png" id="2_uvg4f"]
+[ext_resource type="AudioStream" uid="uid://bk7ii8w1jilss" path="res://Audio/explosion (9).wav" id="4_uvg4f"]
+[ext_resource type="AudioStream" uid="uid://ccomvd2q36cd1" path="res://Audio/bell.mp3" id="5_uvg4f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v4po"]
+atlas = ExtResource("2_uvg4f")
+region = Rect2(0, 0, 100, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvg4f"]
+atlas = ExtResource("2_uvg4f")
+region = Rect2(100, 0, 100, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66fj5"]
+atlas = ExtResource("2_uvg4f")
+region = Rect2(200, 0, 100, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y664x"]
+atlas = ExtResource("2_uvg4f")
+region = Rect2(300, 0, 100, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tohf6"]
+atlas = ExtResource("2_uvg4f")
+region = Rect2(400, 0, 100, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaeap"]
+atlas = ExtResource("2_uvg4f")
+region = Rect2(500, 0, 100, 324)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v4po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvg4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66fj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y664x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tohf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaeap")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(118.15408, 128.58994)
 
+[sub_resource type="Animation" id="Animation_uvg4f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigStaffShadow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BigStaffShadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BigStaff:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BigStaff:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0v4po"]
+resource_name = "drop"
+length = 1.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigStaffShadow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.98333335, 1.25),
+"transitions": PackedFloat32Array(3.6, 1, 2.14, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.7529412), Color(0, 0, 0, 0.7529412), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BigStaffShadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.23333335, 0.73333335),
+"transitions": PackedFloat32Array(3.6040773, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BigStaff:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.23333335, 0.73333335),
+"transitions": PackedFloat32Array(3.6, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BigStaff:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 0.73333335, 0.98333335, 1.2333333),
+"transitions": PackedFloat32Array(3.6, 1, 2.143547, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shake"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uvg4f"]
+_data = {
+&"RESET": SubResource("Animation_uvg4f"),
+&"drop": SubResource("Animation_0v4po")
+}
+
 [node name="Absolver" type="Node2D" unique_id=1039611704]
 script = ExtResource("1_5niq3")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=759932171]
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=661562414]
 visible = false
-scale = Vector2(0.05078116, 2.5429688)
-texture = ExtResource("1_m3aph")
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.27221876
 
 [node name="Area2D" type="Area2D" parent="Icon" unique_id=1971959744]
+scale = Vector2(0.05078116, 2.5429688)
 monitoring = false
 monitorable = false
 
@@ -23,3 +201,23 @@ position = Vector2(-2.3475075e-06, 0.19662486)
 scale = Vector2(0.9999994, 0.9999993)
 shape = SubResource("RectangleShape2D_g4v7s")
 disabled = true
+
+[node name="BigStaffShadow" type="Sprite2D" parent="." unique_id=571945494]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(0, 192)
+texture = ExtResource("2_5niq3")
+
+[node name="BigStaff" type="Sprite2D" parent="." unique_id=30763350]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 185)
+texture = ExtResource("2_5niq3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=686967997]
+libraries/ = SubResource("AnimationLibrary_uvg4f")
+
+[node name="Explosion(9)" type="AudioStreamPlayer" parent="." unique_id=258657061]
+stream = ExtResource("4_uvg4f")
+
+[node name="Bell" type="AudioStreamPlayer" parent="." unique_id=179466737]
+stream = ExtResource("5_uvg4f")
+volume_db = -2.0

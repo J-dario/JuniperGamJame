@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bx62xiahr00of"]
+
+[ext_resource type="Script" uid="uid://dyj8up3pgayst" path="res://Scipts/vajra.gd" id="1_lqmym"]
+[ext_resource type="Texture2D" uid="uid://ul5mnykdv3d7" path="res://Sprites/UI/WheelHole.png" id="2_lqmym"]
+[ext_resource type="Shader" uid="uid://b1i26dax6rbgd" path="res://Shaders/dissolve.gdshader" id="3_gvp4c"]
+[ext_resource type="Texture2D" uid="uid://cpb7uqrnsb7nt" path="res://Sprites/UI/WheelIcon.png" id="4_njmqp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wahgm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dmn01"]
+noise = SubResource("FastNoiseLite_wahgm")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("3_gvp4c")
+shader_parameter/progress = -0.6
+shader_parameter/noiseForce = 1.6
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_dmn01")
+shader_parameter/burnColor = Color(0.7647059, 0.14117648, 0.32941177, 1)
+shader_parameter/borderWidth = 0.2
+shader_parameter/direction = 90.0
+
+[sub_resource type="Shader" id="Shader_w3ld3"]
+code = "shader_type canvas_item;
+uniform float progress = -0.5;
+uniform float noiseForce = 0.2;
+uniform sampler2D noiseTexture;
+uniform vec4 burnColor: source_color;
+uniform float borderWidth;
+uniform float direction = 180.0f;
+
+vec2 degreesToPerpendicular(){
+	return vec2(cos(radians((direction))), -sin(radians(direction)));
+}
+void fragment(){
+	vec2 normUV = UV * 2.0 - 1.0;
+	COLOR.rgb = mix(COLOR.rgb, burnColor.rgb, float(dot(normUV, degreesToPerpendicular()) + (texture(noiseTexture, UV).r * noiseForce) < (progress + borderWidth)));
+	if(!(dot(normUV, degreesToPerpendicular()) + (texture(noiseTexture, UV).r * noiseForce) > progress)){
+		COLOR.a = 0.0;
+	}
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dmn01"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pi23r"]
+noise = SubResource("FastNoiseLite_dmn01")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gd0yw"]
+shader = SubResource("Shader_w3ld3")
+shader_parameter/progress = -0.5
+shader_parameter/noiseForce = 2.0
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_pi23r")
+shader_parameter/burnColor = Color(0, 0, 0, 1)
+shader_parameter/borderWidth = 0.0
+shader_parameter/direction = 90.0
+
+[node name="Dhrama" type="Node2D" unique_id=391097469]
+script = ExtResource("1_lqmym")
+
+[node name="VajraUsed" type="Sprite2D" parent="." unique_id=1042350637]
+texture = ExtResource("2_lqmym")
+
+[node name="Item" type="CanvasGroup" parent="." unique_id=1481621900]
+material = SubResource("ShaderMaterial_g4v7s")
+
+[node name="ItemSprite" type="Sprite2D" parent="Item" unique_id=701523961]
+material = SubResource("ShaderMaterial_gd0yw")
+texture = ExtResource("4_njmqp")
+
+[node name="Shadow" type="Sprite2D" parent="Item/ItemSprite" unique_id=491526934]
+modulate = Color(0, 0, 0, 0.26666668)
+show_behind_parent = true
+position = Vector2(2, 2)
+texture = ExtResource("4_njmqp")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmn72ik0aynw"]
 
 [ext_resource type="Script" uid="uid://bc7juxy41p5t" path="res://Scipts/slice.gd" id="1_y4txe"]
-[ext_resource type="Texture2D" uid="uid://dyotak7pe6ate" path="res://Sprites/InnerSlice2.png" id="2_xvs4d"]
+[ext_resource type="Texture2D" uid="uid://cmjgrxex2tfjk" path="res://Sprites/Heaven/InnerHeaven.png" id="2_xvs4d"]
 
 [sub_resource type="Shader" id="Shader_xvs4d"]
 code = "shader_type canvas_item;

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://b1tybt0ete4mh"]
+
+[ext_resource type="Script" uid="uid://bo5hcpuwtf2c4" path="res://Scipts/level.gd" id="1_cru1l"]
+[ext_resource type="Script" uid="uid://48tno0u5v488" path="res://Scipts/player_controls.gd" id="1_vk57k"]
+[ext_resource type="Texture2D" uid="uid://ddw7vf8xp81mp" path="res://Sprites/BG.png" id="2_8ffim"]
+[ext_resource type="PackedScene" uid="uid://nno4p6w8325r" path="res://Scenes/wheel.tscn" id="3_xfk5q"]
+[ext_resource type="PackedScene" uid="uid://do70fd44jjc3o" path="res://Scenes/star.tscn" id="5_tlryv"]
+[ext_resource type="PackedScene" uid="uid://dtcrv3f3xc5rb" path="res://Scenes/vajra.tscn" id="7_dsuda"]
+[ext_resource type="PackedScene" uid="uid://bx62xiahr00of" path="res://Scenes/darwheel.tscn" id="7_qek6e"]
+
+[node name="level1" type="Node2D" unique_id=591169119]
+position = Vector2(-6, -1)
+script = ExtResource("1_cru1l")
+num_absolves = 3
+num_turns = 3
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1575711124]
+texture = ExtResource("2_8ffim")
+metadata/_edit_lock_ = true
+
+[node name="PlayerControls" type="Node2D" parent="." unique_id=1649571693]
+script = ExtResource("1_vk57k")
+metadata/_edit_lock_ = true
+
+[node name="Wheel" parent="." unique_id=1269433863 instance=ExtResource("3_xfk5q")]
+
+[node name="UI" type="Node2D" parent="." unique_id=1062192103]
+
+[node name="Stars" type="Node2D" parent="UI" unique_id=1546793942]
+
+[node name="Star1" parent="UI/Stars" unique_id=391097469 instance=ExtResource("5_tlryv")]
+position = Vector2(-215, -159)
+
+[node name="Star2" parent="UI/Stars" unique_id=1918082302 instance=ExtResource("5_tlryv")]
+position = Vector2(-255, -159)
+
+[node name="Star3" parent="UI/Stars" unique_id=1532592982 instance=ExtResource("5_tlryv")]
+position = Vector2(-295, -159)
+
+[node name="Vajuses" type="Node2D" parent="UI" unique_id=1547261104]
+
+[node name="Vajra1" parent="UI/Vajuses" unique_id=655413681 instance=ExtResource("7_dsuda")]
+position = Vector2(-163, -69)
+
+[node name="Vajra2" parent="UI/Vajuses" unique_id=784872996 instance=ExtResource("7_dsuda")]
+position = Vector2(-184, 1)
+
+[node name="Vajra3" parent="UI/Vajuses" unique_id=451408939 instance=ExtResource("7_dsuda")]
+position = Vector2(-177, 69)
+
+[node name="Dharma" type="Node2D" parent="UI" unique_id=1082811870]
+
+[node name="Dhrama1" parent="UI/Dharma" unique_id=1745599022 instance=ExtResource("7_qek6e")]
+position = Vector2(175, -69)
+
+[node name="Dhrama2" parent="UI/Dharma" unique_id=157120238 instance=ExtResource("7_qek6e")]
+position = Vector2(189, 3)
+
+[node name="Dhrama3" parent="UI/Dharma" unique_id=151187398 instance=ExtResource("7_qek6e")]
+position = Vector2(177, 76)
+
+[editable path="Wheel"]
+[editable path="Wheel/OuterRing"]
+[editable path="Wheel/OuterRing/Slices/Slice1"]
+[editable path="Wheel/OuterRing/Slices/Slice2"]
+[editable path="Wheel/OuterRing/Slices/Slice3"]
+[editable path="Wheel/OuterRing/Slices/Slice4"]
+[editable path="Wheel/OuterRing/Slices/Slice5"]
+[editable path="Wheel/OuterRing/Slices/Slice6"]
+[editable path="Wheel/MiddleRing"]
+[editable path="Wheel/MiddleRing/Slices/Slice1"]
+[editable path="Wheel/MiddleRing/Slices/Slice2"]
+[editable path="Wheel/MiddleRing/Slices/Slice3"]
+[editable path="Wheel/MiddleRing/Slices/Slice4"]
+[editable path="Wheel/MiddleRing/Slices/Slice5"]
+[editable path="Wheel/MiddleRing/Slices/Slice6"]

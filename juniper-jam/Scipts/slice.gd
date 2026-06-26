@@ -3,6 +3,8 @@ extends Node2D
 @onready var spawner: Marker2D = $Spawner
 @onready var soul_sprite: Sprite2D = $SoulSprite
 
+var isGood = true
+
 enum SoulType {
 	NONE,
 	RED,
@@ -16,6 +18,7 @@ func _ready() -> void:
 		soul_sprite.position = spawner.position
 		soul_sprite.material = soul_sprite.material.duplicate()
 		add_child(soul_sprite)
+		isGood = false
 
 func _process(_delta):
 	
@@ -33,4 +36,5 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func absolution() -> void:
 	if soul_sprite:
+		isGood = true
 		soul_sprite.queue_free()
