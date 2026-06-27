@@ -15,11 +15,41 @@ extends Node2D
 var startRotate = false
 var transitioning = false
 var bob_time := 0.0
+var selected := 0 
 
+func update_selection():
+	play.modulate = Color("c1c1c1")
+	level_select.modulate = Color("c1c1c1")
+
+	if selected == 0:
+		play.modulate = Color.WHITE
+	else:
+		level_select.modulate = Color.WHITE
+		
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Intro":
 		startRotate = true
 
+func _ready() -> void:
+	update_selection()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if transitioning:
+		return
+
+	if event.is_action_pressed("MoveSelectUp") or event.is_action_pressed("MoveSelectDown"):
+		selected = 1 - selected
+		$Hover.play()
+		update_selection()
+
+	elif event.is_action_pressed("Confirm"):
+		$Select.play()
+
+		if selected == 0:
+			_on_play_button_pressed()
+		else:
+			_on_level_button_pressed()
+			
 func _process(delta: float) -> void:
 	if startRotate and not transitioning:
 		outer_ring.rotation += 0.1 * delta
@@ -34,10 +64,13 @@ func _process(delta: float) -> void:
 		level_select.position.y = 101.0 + sin(bob_time * 1.5) * 5.0
 
 func _on_play_button_mouse_entered() -> void:
-	play.modulate = Color("ffffff")
+	selected = 0
+	update_selection()
 	$Hover.play()
 func _on_play_button_mouse_exited() -> void:
-	play.modulate = Color("c1c1c1")
+	selected = 1
+	update_selection()
+	$Hover.play()
 
 func _on_play_button_pressed() -> void:
 	$Select.play()

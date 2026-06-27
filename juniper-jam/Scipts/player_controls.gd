@@ -3,7 +3,8 @@ extends Node2D
 enum SelectedMode {
 	NONE,
 	RING,
-	ABSOLVE
+	ABSOLVE,
+	RESTART
 }
 var selected_mode: SelectedMode = SelectedMode.NONE
 
@@ -40,18 +41,27 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Globals.canMove == false:
 		return
-		
-	if Input.is_action_just_pressed("SwitchToSpin") and selected_mode != SelectedMode.RING:
+	
+	elif Input.is_action_just_pressed("Restart"):
+		selected_mode = SelectedMode.RESTART
+		get_parent()._on_button_mouse_entered()
+		$"PickupCoin(4)".play()
+		selected_absolver.deselect()
+		selected_ring.unhighlightRing()
+	
+	elif Input.is_action_just_pressed("SwitchToSpin") and selected_mode != SelectedMode.RING:
 		selected_mode = SelectedMode.RING
 		selected_ring.highlightRing()
 		selected_absolver.deselect()
 		wheel.playDownSound()
+		get_parent()._on_button_mouse_exited()
 	
 	elif Input.is_action_just_pressed("SwitchToAbsolve") and selected_mode != SelectedMode.ABSOLVE:
 		selected_mode = SelectedMode.ABSOLVE
 		selected_ring.unhighlightRing()
 		selected_absolver.select()
 		wheel.playDownSound()
+		get_parent()._on_button_mouse_exited()
 
 	elif Input.is_action_just_pressed("MoveSelectUp"):
 		if selected_mode == SelectedMode.RING:
@@ -66,27 +76,31 @@ func _process(delta: float) -> void:
 			wheel.playDownSound()
 	
 	elif Input.is_action_just_pressed("MoveSelectLeft"):
-		if selected_mode == SelectedMode.RING and (get_parent().num_turns != 0 or get_parent().stars != 0):
-			if get_parent().num_turns != 0:
-				get_parent().num_turns -= 1
-				selected_ring.rotateLeft()
+		if selected_mode == SelectedMode.RING:
+			if (get_parent().num_turns != 0 or get_parent().stars != 0):
+				if get_parent().num_turns != 0:
+					get_parent().num_turns -= 1
+					selected_ring.rotateLeft()
+					
+					for wheel in dharma.get_children():
+						if not wheel.used:
+							wheel.used = true
+							wheel.usedAnim()
+							break
 				
-				for wheel in dharma.get_children():
-					if not wheel.used:
-						wheel.used = true
-						wheel.usedAnim()
-						break
-			
-			elif get_parent().stars != 0:
-				get_parent().stars -= 1
-				selected_ring.rotateLeft()
-			
-				for star in stars.get_children():
-					if not star.used:
-						star.used = true
-						star.usedAnim()
-						break
-		
+				elif get_parent().stars != 0:
+					get_parent().stars -= 1
+					selected_ring.rotateLeft()
+				
+					for star in stars.get_children():
+						if not star.used:
+							star.used = true
+							star.usedAnim()
+							break
+				
+			elif get_parent().stars == 0:
+				$"HitHurt(4)".play()
+				$"../Wheel/Camera2D".trigger_small_shake()
 			
 		elif selected_mode == SelectedMode.ABSOLVE:
 			var new_index = (selected_absolver_index - 1 + selected_absolver_arr.size()) % selected_absolver_arr.size()
@@ -94,26 +108,30 @@ func _process(delta: float) -> void:
 			wheel.playUpSound()
 		
 	elif Input.is_action_just_pressed("MoveSelectRight"):
-		if selected_mode == SelectedMode.RING and (get_parent().num_turns != 0 or get_parent().stars != 0):
-			if get_parent().num_turns != 0:
-				get_parent().num_turns -= 1
-				selected_ring.rotateRight()
+		if selected_mode == SelectedMode.RING:
+			if (get_parent().num_turns != 0 or get_parent().stars != 0):
+				if get_parent().num_turns != 0:
+					get_parent().num_turns -= 1
+					selected_ring.rotateRight()
+					
+					for wheel in dharma.get_children():
+						if not wheel.used:
+							wheel.used = true
+							wheel.usedAnim()
+							break
 				
-				for wheel in dharma.get_children():
-					if not wheel.used:
-						wheel.used = true
-						wheel.usedAnim()
-						break
-			
-			elif get_parent().stars != 0:
-				get_parent().stars -= 1
-				selected_ring.rotateRight()
-			
-				for star in stars.get_children():
-					if not star.used:
-						star.used = true
-						star.usedAnim()
-						break
+				elif get_parent().stars != 0:
+					get_parent().stars -= 1
+					selected_ring.rotateRight()
+				
+					for star in stars.get_children():
+						if not star.used:
+							star.used = true
+							star.usedAnim()
+							break
+			elif get_parent().stars == 0:
+				$"HitHurt(4)".play()
+				$"../Wheel/Camera2D".trigger_small_shake()
 			
 		elif selected_mode == SelectedMode.ABSOLVE:
 			var new_index = (selected_absolver_index + 1) % selected_absolver_arr.size()
@@ -121,6 +139,10 @@ func _process(delta: float) -> void:
 			wheel.playUpSound()
 	
 	elif Input.is_action_just_pressed("Confirm"):
+		
+		if selected_mode == SelectedMode.RESTART:
+			get_parent().restart()
+		
 		if selected_mode == SelectedMode.ABSOLVE and (get_parent().num_absolves != 0 or get_parent().stars != 0):
 			if get_parent().num_absolves != 0:
 				get_parent().num_absolves -= 1
@@ -140,6 +162,9 @@ func _process(delta: float) -> void:
 						star.used = true
 						star.usedAnim()
 						break
+		elif get_parent().stars == 0:
+			$"HitHurt(4)".play()
+			$"../Wheel/Camera2D".trigger_small_shake()
 
 func update_selected_ring(new_index: int) -> void:
 	var prev_ring = selected_ring_arr[selected_ring_index]

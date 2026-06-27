@@ -10,11 +10,13 @@ var bob_amplitude := 0.0
 var bob_speed := 0.0
 var bob_time := 0.0
 var soulSpritePos := 0.0
+var redFail = false
 
 enum SoulType {
 	NONE,
 	NORMAL,
-	RED
+	RED,
+	PURPLE
 }
 @export var soulType: SoulType = SoulType.NONE
 
@@ -35,9 +37,14 @@ func _ready() -> void:
 	if soulType == SoulType.RED:
 		isGood = true
 		soul_sprite.modulate = Color("#c32454")
-		spinSpeed = 1
+		spinSpeed = -1
 		bob_amplitude = 3.0
 		bob_speed = 3
+	if soulType == SoulType.PURPLE:
+		soul_sprite.modulate = Color("#6b3e75")
+		spinSpeed = 1
+		bob_amplitude = 3.0
+		bob_speed = 2
 	
 	soul_sprite.modulate.a = 0.0
 	var tween := get_tree().create_tween()
@@ -59,10 +66,25 @@ func _on_area_2d_area_exited(_area: Area2D) -> void:
 		soul_sprite.material.set_shader_parameter("thickness", 0)
 
 func absolution() -> void:
-	if soulType != SoulType.NONE:
+	if soulType == SoulType.PURPLE:
+		if soul_sprite.modulate != Color("#4d65b4"):
+			gpu_particles_2d.emitting = true
+			soul_sprite.modulate = Color("#4d65b4")
+		else:
+			gpu_particles_2d.emitting = true
+			isGood = true
+			soul_sprite.modulate.a = 0.0
+			soulType = SoulType.NONE
+	elif soulType == SoulType.RED:
+		soul_sprite.modulate.a = 0.0
+		gpu_particles_2d.emitting = true
+		redFail = true
+	elif soulType != SoulType.NONE:
 		gpu_particles_2d.emitting = true
 		isGood = true
 		soul_sprite.modulate.a = 0.0
+		soulType = SoulType.NONE
+	
 
 func _on_gpu_particles_2d_finished() -> void:
 	if soulType == SoulType.RED:

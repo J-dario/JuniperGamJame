@@ -46,8 +46,8 @@ func check_win() -> void:
 		for i in range(1, 7):
 			var slice = slices_node.get_node("Slice%d" % i)
 			if not slice.isGood:
-				#if stars == 0 and num_turns == 0 and num_absolves == 0:
-				#	restart()
+				return
+			if slice.soulType == slice.SoulType.RED and slice.redFail:
 				return
 	wheel.resetRings()
 
@@ -106,5 +106,13 @@ func restart() -> void:
 	)
 
 func _on_button_pressed() -> void:
-	$Button/Select.play()
+	$UI/Restart/Button/Select.play()
+
+func _on_button_mouse_entered() -> void:
+	$UI/Restart.modulate = Color("ffffff")
+	
+func _on_button_mouse_exited() -> void:
+	$UI/Restart.modulate = Color("c1c1c1")
+
+func _on_select_finished() -> void:
 	restart()

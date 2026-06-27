@@ -4,11 +4,14 @@
 [ext_resource type="Script" uid="uid://48tno0u5v488" path="res://Scipts/player_controls.gd" id="1_vk57k"]
 [ext_resource type="Texture2D" uid="uid://ddw7vf8xp81mp" path="res://Sprites/BG.png" id="2_8ffim"]
 [ext_resource type="PackedScene" uid="uid://nno4p6w8325r" path="res://Scenes/wheel.tscn" id="3_xfk5q"]
+[ext_resource type="AudioStream" uid="uid://bm3glxihw0fvi" path="res://Audio/pickupCoin (4).wav" id="4_041ro"]
+[ext_resource type="AudioStream" uid="uid://3idg8khov6x2" path="res://Audio/hitHurt (4).wav" id="4_sskdo"]
 [ext_resource type="PackedScene" uid="uid://do70fd44jjc3o" path="res://Scenes/star.tscn" id="5_tlryv"]
 [ext_resource type="PackedScene" uid="uid://dtcrv3f3xc5rb" path="res://Scenes/vajra.tscn" id="7_dsuda"]
 [ext_resource type="PackedScene" uid="uid://bx62xiahr00of" path="res://Scenes/darwheel.tscn" id="7_qek6e"]
 [ext_resource type="AudioStream" uid="uid://d0cvke8oolwxj" path="res://Audio/select.wav" id="8_dsuda"]
 [ext_resource type="AudioStream" uid="uid://dfkpc1kbl4eu8" path="res://Audio/starCollect.wav" id="8_tlryv"]
+[ext_resource type="Texture2D" uid="uid://b47f16v2svaik" path="res://Sprites/UI/Restart.png" id="10_s5b24"]
 
 [node name="level1" type="Node2D" unique_id=591169119]
 script = ExtResource("1_cru1l")
@@ -22,6 +25,13 @@ metadata/_edit_lock_ = true
 [node name="PlayerControls" type="Node2D" parent="." unique_id=1649571693]
 script = ExtResource("1_vk57k")
 metadata/_edit_lock_ = true
+
+[node name="PickupCoin(4)" type="AudioStreamPlayer" parent="PlayerControls" unique_id=626401171]
+stream = ExtResource("4_041ro")
+
+[node name="HitHurt(4)" type="AudioStreamPlayer" parent="PlayerControls" unique_id=945792959]
+stream = ExtResource("4_sskdo")
+volume_db = -2.0
 
 [node name="Wheel" parent="." unique_id=1269433863 instance=ExtResource("3_xfk5q")]
 
@@ -96,17 +106,29 @@ position = Vector2(175, -69)
 [node name="Dhrama2" parent="UI/Dharma" unique_id=151187398 instance=ExtResource("7_qek6e")]
 position = Vector2(177, 76)
 
-[node name="Button" type="Button" parent="." unique_id=902103693]
-offset_left = 260.0
-offset_top = -171.0
-offset_right = 314.0
-offset_bottom = -140.0
-text = "RESET"
+[node name="Restart" type="Sprite2D" parent="UI" unique_id=1975894414]
+modulate = Color(0.75686276, 0.75686276, 0.75686276, 1)
+position = Vector2(303, -164)
+texture = ExtResource("10_s5b24")
 
-[node name="Select" type="AudioStreamPlayer" parent="Button" unique_id=1995576591]
+[node name="Restart2" type="Sprite2D" parent="UI/Restart" unique_id=1200674549]
+modulate = Color(0, 0, 0, 0.54509807)
+show_behind_parent = true
+position = Vector2(2, 2)
+texture = ExtResource("10_s5b24")
+
+[node name="Button" type="Button" parent="UI/Restart" unique_id=902103693]
+modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 17.0
+offset_bottom = 18.0
+
+[node name="Select" type="AudioStreamPlayer" parent="UI/Restart/Button" unique_id=1995576591]
 stream = ExtResource("8_dsuda")
 
 [node name="Label" type="Label" parent="." unique_id=1091387306]
+visible = false
 offset_left = -318.0
 offset_top = 155.0
 offset_right = -278.0
@@ -116,7 +138,10 @@ text = "false"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2091800537]
 stream = ExtResource("8_tlryv")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="UI/Restart/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Restart/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="UI/Restart/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="UI/Restart/Button/Select" to="." method="_on_select_finished"]
 
 [editable path="Wheel"]
 [editable path="Wheel/OuterRing"]

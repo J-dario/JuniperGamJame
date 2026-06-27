@@ -8,6 +8,9 @@ var _shake_strength: float = 0.0
 func trigger_shake() -> void:
 	_shake_strength = max_shake
 
+func trigger_small_shake() -> void:
+	_shake_strength = 2.0
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if _shake_strength > 0:
