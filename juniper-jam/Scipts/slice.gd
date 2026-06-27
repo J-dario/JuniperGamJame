@@ -13,7 +13,8 @@ var soulSpritePos := 0.0
 
 enum SoulType {
 	NONE,
-	NORMAL
+	NORMAL,
+	RED
 }
 @export var soulType: SoulType = SoulType.NONE
 
@@ -31,6 +32,12 @@ func _ready() -> void:
 		spinSpeed = 0.5
 		bob_amplitude = 4.0
 		bob_speed = 2.0
+	if soulType == SoulType.RED:
+		isGood = true
+		soul_sprite.modulate = Color("#c32454")
+		spinSpeed = 1
+		bob_amplitude = 3.0
+		bob_speed = 3
 	
 	soul_sprite.modulate.a = 0.0
 	var tween := get_tree().create_tween()
@@ -56,4 +63,7 @@ func absolution() -> void:
 		gpu_particles_2d.emitting = true
 		isGood = true
 		soul_sprite.modulate.a = 0.0
-		soulType != SoulType.NONE
+
+func _on_gpu_particles_2d_finished() -> void:
+	if soulType == SoulType.RED:
+		get_parent().get_parent().get_parent().get_parent().restart()

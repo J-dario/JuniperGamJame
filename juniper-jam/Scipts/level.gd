@@ -15,6 +15,8 @@ extends Node2D
 @onready var ui: Node2D = $UI
 @onready var audio_stream_player_2d_3: AudioStreamPlayer2D = $Wheel/AudioStreamPlayer2D3
 
+var restarting := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ui.modulate.a = 0.0
@@ -75,6 +77,9 @@ func win() -> void:
 	)
 
 func restart() -> void:
+	if restarting:
+		return
+	restarting = true
 	Globals.canMove = false
 	$Wheel/AbsolverLeft.deselect()
 	$Wheel/AbsolverMiddle.deselect()

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://be51xuqddwy8b"]
+[gd_scene format=3 uid="uid://cvmgi2yvps4sb"]
 
 [ext_resource type="Script" uid="uid://bo5hcpuwtf2c4" path="res://Scipts/level.gd" id="1_l4wr6"]
 [ext_resource type="Texture2D" uid="uid://ddw7vf8xp81mp" path="res://Sprites/BG.png" id="2_5rvg2"]
@@ -12,8 +12,8 @@
 
 [node name="level1" type="Node2D" unique_id=591169119]
 script = ExtResource("1_l4wr6")
-num_absolves = 3
-num_turns = 3
+num_absolves = 2
+num_turns = 1
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1575711124]
 texture = ExtResource("2_5rvg2")
@@ -28,19 +28,10 @@ metadata/_edit_lock_ = true
 [node name="Slice1" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="0" unique_id=975003754]
 soulType = 0
 
-[node name="Slice2" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="1" unique_id=946893411]
-soulType = 0
-
-[node name="Slice3" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="2" unique_id=333323833]
-soulType = 0
-
 [node name="Slice4" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="3" unique_id=146302543]
 soulType = 0
 
 [node name="Slice5" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="4" unique_id=622125013]
-soulType = 0
-
-[node name="Slice2" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="1" unique_id=946893411]
 soulType = 0
 
 [node name="Slice3" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="2" unique_id=333323833]
@@ -49,13 +40,10 @@ soulType = 0
 [node name="Slice4" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="3" unique_id=146302543]
 soulType = 0
 
-[node name="Slice5" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="4" unique_id=622125013]
-soulType = 0
-
 [node name="Slice6" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="5" unique_id=1376971184]
 soulType = 0
 
-[node name="Slice1" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="0" unique_id=975003754]
+[node name="Slice2" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="1" unique_id=946893411]
 soulType = 0
 
 [node name="Slice3" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="2" unique_id=333323833]
@@ -69,6 +57,15 @@ soulType = 0
 
 [node name="Slice6" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="5" unique_id=1376971184]
 soulType = 0
+
+[node name="AbsolverLeft" parent="Wheel" index="11" unique_id=1615817253]
+metadata/_edit_lock_ = true
+
+[node name="AbsolverMiddle" parent="Wheel" index="12" unique_id=1039611704]
+metadata/_edit_lock_ = true
+
+[node name="AbsolverRight" parent="Wheel" index="13" unique_id=2050477817]
+metadata/_edit_lock_ = true
 
 [node name="UI" type="Node2D" parent="." unique_id=1062192103]
 
@@ -88,22 +85,13 @@ position = Vector2(-295, -159)
 [node name="Vajra1" parent="UI/Vajuses" unique_id=655413681 instance=ExtResource("6_fxnjf")]
 position = Vector2(-163, -69)
 
-[node name="Vajra2" parent="UI/Vajuses" unique_id=784872996 instance=ExtResource("6_fxnjf")]
-position = Vector2(-184, 1)
-
-[node name="Vajra3" parent="UI/Vajuses" unique_id=451408939 instance=ExtResource("6_fxnjf")]
+[node name="Vajra2" parent="UI/Vajuses" unique_id=451408939 instance=ExtResource("6_fxnjf")]
 position = Vector2(-177, 69)
 
 [node name="Dharma" type="Node2D" parent="UI" unique_id=1082811870]
 
-[node name="Dhrama1" parent="UI/Dharma" unique_id=1745599022 instance=ExtResource("7_xjeco")]
-position = Vector2(175, -69)
-
-[node name="Dhrama2" parent="UI/Dharma" unique_id=157120238 instance=ExtResource("7_xjeco")]
-position = Vector2(189, 3)
-
-[node name="Dhrama3" parent="UI/Dharma" unique_id=151187398 instance=ExtResource("7_xjeco")]
-position = Vector2(177, 76)
+[node name="Dhrama1" parent="UI/Dharma" unique_id=157120238 instance=ExtResource("7_xjeco")]
+position = Vector2(189, 0)
 
 [node name="Button" type="Button" parent="." unique_id=902103693]
 offset_left = 260.0
