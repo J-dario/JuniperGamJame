@@ -50,6 +50,7 @@ func check_win() -> void:
 	wheel.resetRings()
 
 func win() -> void:
+	Globals.canMove = false
 	Globals.nextLevel += 1
 	Globals.numberStars += stars
 	

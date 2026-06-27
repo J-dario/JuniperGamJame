@@ -14,6 +14,7 @@ func playDownSound() -> void:
 	$AudioStreamPlayer2D.play()
 
 func resetRings() -> void:
+	Globals.canMove = false
 	$AudioStreamPlayer2D5.play()
 	$AudioStreamPlayer2D3.play()
 	absolver_left.deselect()

@@ -97,7 +97,6 @@ position = Vector2(175, -69)
 position = Vector2(177, 76)
 
 [node name="Button" type="Button" parent="." unique_id=902103693]
-visible = false
 offset_left = 260.0
 offset_top = -171.0
 offset_right = 314.0
@@ -108,7 +107,6 @@ text = "RESET"
 stream = ExtResource("8_dsuda")
 
 [node name="Label" type="Label" parent="." unique_id=1091387306]
-visible = false
 offset_left = -318.0
 offset_top = 155.0
 offset_right = -278.0

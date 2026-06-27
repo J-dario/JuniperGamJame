@@ -55,4 +55,5 @@ func absolution() -> void:
 	if soulType != SoulType.NONE:
 		gpu_particles_2d.emitting = true
 		isGood = true
-		soul_sprite.queue_free()
+		soul_sprite.modulate.a = 0.0
+		soulType != SoulType.NONE
