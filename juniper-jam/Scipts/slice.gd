@@ -13,8 +13,7 @@ var soulSpritePos := 0.0
 
 enum SoulType {
 	NONE,
-	RED,
-	BLUE
+	NORMAL
 }
 @export var soulType: SoulType = SoulType.NONE
 
@@ -27,7 +26,7 @@ func _ready() -> void:
 	soul_sprite.material = soul_sprite.material.duplicate()
 	soul_sprite.texture = load("res://Sprites/Smoke.png")
 	
-	if soulType == SoulType.RED:
+	if soulType == SoulType.NORMAL:
 		soul_sprite.modulate = Color("#4d65b4")
 		spinSpeed = 0.5
 		bob_amplitude = 4.0
@@ -53,7 +52,7 @@ func _on_area_2d_area_exited(_area: Area2D) -> void:
 		soul_sprite.material.set_shader_parameter("thickness", 0)
 
 func absolution() -> void:
-	if soul_sprite:
+	if soulType != SoulType.NONE:
 		gpu_particles_2d.emitting = true
 		isGood = true
 		soul_sprite.queue_free()

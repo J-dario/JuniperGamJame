@@ -1,29 +1,29 @@
-[gd_scene format=3 uid="uid://jl8cfb7maik7"]
+[gd_scene format=3 uid="uid://be51xuqddwy8b"]
 
-[ext_resource type="Script" uid="uid://bo5hcpuwtf2c4" path="res://Scipts/level.gd" id="1_uhnj4"]
-[ext_resource type="Texture2D" uid="uid://ddw7vf8xp81mp" path="res://Sprites/BG.png" id="2_42uki"]
-[ext_resource type="Script" uid="uid://48tno0u5v488" path="res://Scipts/player_controls.gd" id="3_t7v2y"]
-[ext_resource type="PackedScene" uid="uid://nno4p6w8325r" path="res://Scenes/wheel.tscn" id="4_ait6c"]
-[ext_resource type="PackedScene" uid="uid://do70fd44jjc3o" path="res://Scenes/star.tscn" id="5_vcilj"]
-[ext_resource type="PackedScene" uid="uid://dtcrv3f3xc5rb" path="res://Scenes/vajra.tscn" id="6_bl0du"]
-[ext_resource type="PackedScene" uid="uid://bx62xiahr00of" path="res://Scenes/darwheel.tscn" id="7_q0ycs"]
-[ext_resource type="AudioStream" uid="uid://d0cvke8oolwxj" path="res://Audio/select.wav" id="8_hj5x7"]
-[ext_resource type="AudioStream" uid="uid://dfkpc1kbl4eu8" path="res://Audio/starCollect.wav" id="9_yvrk7"]
+[ext_resource type="Script" uid="uid://bo5hcpuwtf2c4" path="res://Scipts/level.gd" id="1_l4wr6"]
+[ext_resource type="Texture2D" uid="uid://ddw7vf8xp81mp" path="res://Sprites/BG.png" id="2_5rvg2"]
+[ext_resource type="Script" uid="uid://48tno0u5v488" path="res://Scipts/player_controls.gd" id="3_jtv8s"]
+[ext_resource type="PackedScene" uid="uid://nno4p6w8325r" path="res://Scenes/wheel.tscn" id="4_c81s1"]
+[ext_resource type="PackedScene" uid="uid://do70fd44jjc3o" path="res://Scenes/star.tscn" id="5_n4vm5"]
+[ext_resource type="PackedScene" uid="uid://dtcrv3f3xc5rb" path="res://Scenes/vajra.tscn" id="6_fxnjf"]
+[ext_resource type="PackedScene" uid="uid://bx62xiahr00of" path="res://Scenes/darwheel.tscn" id="7_xjeco"]
+[ext_resource type="AudioStream" uid="uid://d0cvke8oolwxj" path="res://Audio/select.wav" id="8_j77fg"]
+[ext_resource type="AudioStream" uid="uid://dfkpc1kbl4eu8" path="res://Audio/starCollect.wav" id="9_ki8bc"]
 
-[node name="level2" type="Node2D" unique_id=591169119]
-script = ExtResource("1_uhnj4")
-num_absolves = 2
-num_turns = 1
+[node name="level1" type="Node2D" unique_id=591169119]
+script = ExtResource("1_l4wr6")
+num_absolves = 3
+num_turns = 3
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1575711124]
-texture = ExtResource("2_42uki")
+texture = ExtResource("2_5rvg2")
 metadata/_edit_lock_ = true
 
 [node name="PlayerControls" type="Node2D" parent="." unique_id=1649571693]
-script = ExtResource("3_t7v2y")
+script = ExtResource("3_jtv8s")
 metadata/_edit_lock_ = true
 
-[node name="Wheel" parent="." unique_id=1269433863 instance=ExtResource("4_ait6c")]
+[node name="Wheel" parent="." unique_id=1269433863 instance=ExtResource("4_c81s1")]
 
 [node name="Slice1" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="0" unique_id=975003754]
 soulType = 0
@@ -32,6 +32,9 @@ soulType = 0
 soulType = 0
 
 [node name="Slice3" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="2" unique_id=333323833]
+soulType = 0
+
+[node name="Slice4" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="3" unique_id=146302543]
 soulType = 0
 
 [node name="Slice5" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="4" unique_id=622125013]
@@ -71,27 +74,36 @@ soulType = 0
 
 [node name="Stars" type="Node2D" parent="UI" unique_id=1546793942]
 
-[node name="Star1" parent="UI/Stars" unique_id=391097469 instance=ExtResource("5_vcilj")]
+[node name="Star1" parent="UI/Stars" unique_id=391097469 instance=ExtResource("5_n4vm5")]
 position = Vector2(-215, -159)
 
-[node name="Star2" parent="UI/Stars" unique_id=1918082302 instance=ExtResource("5_vcilj")]
+[node name="Star2" parent="UI/Stars" unique_id=1918082302 instance=ExtResource("5_n4vm5")]
 position = Vector2(-255, -159)
 
-[node name="Star3" parent="UI/Stars" unique_id=1532592982 instance=ExtResource("5_vcilj")]
+[node name="Star3" parent="UI/Stars" unique_id=1532592982 instance=ExtResource("5_n4vm5")]
 position = Vector2(-295, -159)
 
 [node name="Vajuses" type="Node2D" parent="UI" unique_id=1547261104]
 
-[node name="Vajra1" parent="UI/Vajuses" unique_id=655413681 instance=ExtResource("6_bl0du")]
+[node name="Vajra1" parent="UI/Vajuses" unique_id=655413681 instance=ExtResource("6_fxnjf")]
 position = Vector2(-163, -69)
 
-[node name="Vajra2" parent="UI/Vajuses" unique_id=451408939 instance=ExtResource("6_bl0du")]
+[node name="Vajra2" parent="UI/Vajuses" unique_id=784872996 instance=ExtResource("6_fxnjf")]
+position = Vector2(-184, 1)
+
+[node name="Vajra3" parent="UI/Vajuses" unique_id=451408939 instance=ExtResource("6_fxnjf")]
 position = Vector2(-177, 69)
 
 [node name="Dharma" type="Node2D" parent="UI" unique_id=1082811870]
 
-[node name="Dhrama1" parent="UI/Dharma" unique_id=1745599022 instance=ExtResource("7_q0ycs")]
-position = Vector2(189, 0)
+[node name="Dhrama1" parent="UI/Dharma" unique_id=1745599022 instance=ExtResource("7_xjeco")]
+position = Vector2(175, -69)
+
+[node name="Dhrama2" parent="UI/Dharma" unique_id=157120238 instance=ExtResource("7_xjeco")]
+position = Vector2(189, 3)
+
+[node name="Dhrama3" parent="UI/Dharma" unique_id=151187398 instance=ExtResource("7_xjeco")]
+position = Vector2(177, 76)
 
 [node name="Button" type="Button" parent="." unique_id=902103693]
 offset_left = 260.0
@@ -101,7 +113,7 @@ offset_bottom = -140.0
 text = "RESET"
 
 [node name="Select" type="AudioStreamPlayer" parent="Button" unique_id=1995576591]
-stream = ExtResource("8_hj5x7")
+stream = ExtResource("8_j77fg")
 
 [node name="Label" type="Label" parent="." unique_id=1091387306]
 offset_left = -318.0
@@ -111,7 +123,7 @@ offset_bottom = 178.0
 text = "false"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2091800537]
-stream = ExtResource("9_yvrk7")
+stream = ExtResource("9_ki8bc")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 

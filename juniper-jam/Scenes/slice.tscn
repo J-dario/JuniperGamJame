@@ -9,7 +9,7 @@ code = "shader_type canvas_item;
 
 uniform vec4 clr : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform int type : hint_enum(\"Disable\", \"Round\", \"Square\") = 2;
-uniform float thickness = 1.0;
+uniform float thickness = 0.0;
 
 const vec2[8] DIRECTIONS = {
 	vec2(1.0, 0.0),

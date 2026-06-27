@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://4toxeoxv5v77"]
+
+[ext_resource type="Texture2D" uid="uid://ckpsqwyfnfkc5" path="res://Scenes/transScreen.png" id="1_t4gw0"]
+
+[node name="Node2D" type="Node2D" unique_id=344123977]
+
+[node name="TransScreen" type="Sprite2D" parent="." unique_id=786673500]
+z_index = -100
+position = Vector2(320.00003, 180)
+scale = Vector2(0.372, 0.372)
+texture = ExtResource("1_t4gw0")

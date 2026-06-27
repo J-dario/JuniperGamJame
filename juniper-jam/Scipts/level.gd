@@ -17,6 +17,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ui.modulate.a = 0.0
 	GlobalMusic.play_music_level()
 	fade_in_UI()
 
@@ -71,7 +72,6 @@ func win() -> void:
 		var path = "res://Scenes/levels/level_%d.tscn" % Globals.nextLevel
 		get_tree().change_scene_to_file(path)
 	)
-
 
 func restart() -> void:
 	Globals.canMove = false

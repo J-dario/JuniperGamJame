@@ -12,8 +12,8 @@
 
 [node name="level1" type="Node2D" unique_id=591169119]
 script = ExtResource("1_cru1l")
-num_absolves = 3
-num_turns = 3
+num_absolves = 1
+num_turns = 2
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1575711124]
 texture = ExtResource("2_8ffim")
@@ -25,8 +25,52 @@ metadata/_edit_lock_ = true
 
 [node name="Wheel" parent="." unique_id=1269433863 instance=ExtResource("3_xfk5q")]
 
+[node name="Slice1" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="0" unique_id=975003754]
+soulType = 0
+
+[node name="Slice2" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="1" unique_id=946893411]
+soulType = 0
+
+[node name="Slice3" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="2" unique_id=333323833]
+soulType = 0
+
+[node name="Slice4" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="3" unique_id=146302543]
+soulType = 0
+
+[node name="Slice5" parent="Wheel/OuterRing/Slices" parent_id_path=PackedInt32Array(1269433863, 76950587, 754568485) index="4" unique_id=622125013]
+soulType = 0
+
+[node name="Slice2" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="1" unique_id=946893411]
+soulType = 0
+
+[node name="Slice3" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="2" unique_id=333323833]
+soulType = 0
+
+[node name="Slice4" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="3" unique_id=146302543]
+soulType = 0
+
+[node name="Slice5" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="4" unique_id=622125013]
+soulType = 0
+
+[node name="Slice6" parent="Wheel/MiddleRing/Slices" parent_id_path=PackedInt32Array(1269433863, 399078688, 754568485) index="5" unique_id=1376971184]
+soulType = 0
+
+[node name="Slice1" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="0" unique_id=975003754]
+soulType = 0
+
+[node name="Slice3" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="2" unique_id=333323833]
+soulType = 0
+
+[node name="Slice4" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="3" unique_id=146302543]
+soulType = 0
+
+[node name="Slice5" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="4" unique_id=622125013]
+soulType = 0
+
+[node name="Slice6" parent="Wheel/InnerRing/Slices" parent_id_path=PackedInt32Array(1269433863, 962998103, 754568485) index="5" unique_id=1376971184]
+soulType = 0
+
 [node name="UI" type="Node2D" parent="." unique_id=1062192103]
-modulate = Color(1, 1, 1, 0)
 
 [node name="Stars" type="Node2D" parent="UI" unique_id=1546793942]
 
@@ -41,27 +85,19 @@ position = Vector2(-295, -159)
 
 [node name="Vajuses" type="Node2D" parent="UI" unique_id=1547261104]
 
-[node name="Vajra1" parent="UI/Vajuses" unique_id=655413681 instance=ExtResource("7_dsuda")]
-position = Vector2(-163, -69)
-
-[node name="Vajra2" parent="UI/Vajuses" unique_id=784872996 instance=ExtResource("7_dsuda")]
+[node name="Vajra1" parent="UI/Vajuses" unique_id=784872996 instance=ExtResource("7_dsuda")]
 position = Vector2(-184, 1)
-
-[node name="Vajra3" parent="UI/Vajuses" unique_id=451408939 instance=ExtResource("7_dsuda")]
-position = Vector2(-177, 69)
 
 [node name="Dharma" type="Node2D" parent="UI" unique_id=1082811870]
 
 [node name="Dhrama1" parent="UI/Dharma" unique_id=1745599022 instance=ExtResource("7_qek6e")]
 position = Vector2(175, -69)
 
-[node name="Dhrama2" parent="UI/Dharma" unique_id=157120238 instance=ExtResource("7_qek6e")]
-position = Vector2(189, 3)
-
-[node name="Dhrama3" parent="UI/Dharma" unique_id=151187398 instance=ExtResource("7_qek6e")]
+[node name="Dhrama2" parent="UI/Dharma" unique_id=151187398 instance=ExtResource("7_qek6e")]
 position = Vector2(177, 76)
 
 [node name="Button" type="Button" parent="." unique_id=902103693]
+visible = false
 offset_left = 260.0
 offset_top = -171.0
 offset_right = 314.0
@@ -72,6 +108,7 @@ text = "RESET"
 stream = ExtResource("8_dsuda")
 
 [node name="Label" type="Label" parent="." unique_id=1091387306]
+visible = false
 offset_left = -318.0
 offset_top = 155.0
 offset_right = -278.0
@@ -98,3 +135,10 @@ stream = ExtResource("8_tlryv")
 [editable path="Wheel/MiddleRing/Slices/Slice4"]
 [editable path="Wheel/MiddleRing/Slices/Slice5"]
 [editable path="Wheel/MiddleRing/Slices/Slice6"]
+[editable path="Wheel/InnerRing"]
+[editable path="Wheel/InnerRing/Slices/Slice1"]
+[editable path="Wheel/InnerRing/Slices/Slice2"]
+[editable path="Wheel/InnerRing/Slices/Slice3"]
+[editable path="Wheel/InnerRing/Slices/Slice4"]
+[editable path="Wheel/InnerRing/Slices/Slice5"]
+[editable path="Wheel/InnerRing/Slices/Slice6"]
